@@ -4,6 +4,7 @@ import useKeycloak from '../hooks/useKeycloak'
 
 const NavBar: React.FC = () => {
   const [isServicesOpen, setIsServicesOpen] = useState(false)
+  const [hoveredLink, setHoveredLink] = useState<string | null>(null)
   const { authenticated, login, logout, register } = useKeycloak()
   const location = useLocation()
   const navigate = useNavigate()
@@ -59,25 +60,16 @@ const NavBar: React.FC = () => {
           gap: '2rem'
         }}>
           <Link to="/" style={{
-            color: isActiveLink('/') ? '#60a5fa' : '#d1d5db',
+            color: isActiveLink('/') ? '#60a5fa' : (hoveredLink === '/' ? '#ffffff' : '#d1d5db'),
             textDecoration: 'none',
             padding: '0.5rem 1rem',
             borderRadius: '0.375rem',
             transition: 'all 0.2s ease-in-out',
+            backgroundColor: isActiveLink('/') ? 'transparent' : (hoveredLink === '/' ? '#374151' : 'transparent'),
             borderBottom: isActiveLink('/') ? '2px solid #60a5fa' : '2px solid transparent'
           }}
-          onMouseEnter={(e) => {
-            if (!isActiveLink('/')) {
-              e.currentTarget.style.backgroundColor = '#374151'
-              e.currentTarget.style.color = '#ffffff'
-            }
-          }}
-          onMouseLeave={(e) => {
-            if (!isActiveLink('/')) {
-              e.currentTarget.style.backgroundColor = 'transparent'
-              e.currentTarget.style.color = '#d1d5db'
-            }
-          }}>
+          onMouseEnter={() => setHoveredLink('/')}
+          onMouseLeave={() => setHoveredLink(null)}>
             Home
           </Link>
 
@@ -218,25 +210,16 @@ const NavBar: React.FC = () => {
           </div>
 
           <Link to="/contact" style={{
-            color: isActiveLink('/contact') ? '#60a5fa' : '#d1d5db',
+            color: isActiveLink('/contact') ? '#60a5fa' : (hoveredLink === '/contact' ? '#ffffff' : '#d1d5db'),
             textDecoration: 'none',
             padding: '0.5rem 1rem',
             borderRadius: '0.375rem',
             transition: 'all 0.2s ease-in-out',
+            backgroundColor: isActiveLink('/contact') ? 'transparent' : (hoveredLink === '/contact' ? '#374151' : 'transparent'),
             borderBottom: isActiveLink('/contact') ? '2px solid #60a5fa' : '2px solid transparent'
           }}
-          onMouseEnter={(e) => {
-            if (!isActiveLink('/contact')) {
-              e.currentTarget.style.backgroundColor = '#374151'
-              e.currentTarget.style.color = '#ffffff'
-            }
-          }}
-          onMouseLeave={(e) => {
-            if (!isActiveLink('/contact')) {
-              e.currentTarget.style.backgroundColor = 'transparent'
-              e.currentTarget.style.color = '#d1d5db'
-            }
-          }}>
+          onMouseEnter={() => setHoveredLink('/contact')}
+          onMouseLeave={() => setHoveredLink(null)}>
             Contact
           </Link>
 
@@ -244,25 +227,16 @@ const NavBar: React.FC = () => {
             <Link 
               to="/my-items" 
               style={{
-                color: isActiveLink('/my-items') ? '#60a5fa' : '#d1d5db',
+                color: isActiveLink('/my-items') ? '#60a5fa' : (hoveredLink === '/my-items' ? '#ffffff' : '#d1d5db'),
                 textDecoration: 'none',
                 padding: '0.5rem 1rem',
                 borderRadius: '0.375rem',
                 transition: 'all 0.2s ease-in-out',
+                backgroundColor: isActiveLink('/my-items') ? 'transparent' : (hoveredLink === '/my-items' ? '#374151' : 'transparent'),
                 borderBottom: isActiveLink('/my-items') ? '2px solid #60a5fa' : '2px solid transparent'
               }}
-              onMouseEnter={(e) => {
-                if (!isActiveLink('/my-items')) {
-                  e.currentTarget.style.backgroundColor = '#374151'
-                  e.currentTarget.style.color = '#ffffff'
-                }
-              }}
-              onMouseLeave={(e) => {
-                if (!isActiveLink('/my-items')) {
-                  e.currentTarget.style.backgroundColor = 'transparent'
-                  e.currentTarget.style.color = '#d1d5db'
-                }
-              }}
+              onMouseEnter={() => setHoveredLink('/my-items')}
+              onMouseLeave={() => setHoveredLink(null)}
             >
               My Items
             </Link>
