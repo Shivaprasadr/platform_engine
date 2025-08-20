@@ -11,15 +11,15 @@ const NavBar: React.FC = () => {
   const isActiveLink = (path: string) => location.pathname === path
 
   const handleServiceClick = (sectionId: string) => {
-    setIsServicesOpen(false)
     navigate('/services')
+    setIsServicesOpen(false)
     // Small delay to ensure navigation completes before scrolling
     setTimeout(() => {
       const element = document.getElementById(sectionId)
       if (element) {
-        element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+        element.scrollIntoView({ behavior: 'smooth' })
       }
-    }, 300)
+    }, 100)
   }
 
   return (
@@ -82,15 +82,8 @@ const NavBar: React.FC = () => {
           </Link>
 
           {/* Services Dropdown */}
-          <div 
-            style={{ 
-              position: 'relative',
-              paddingBottom: '0.5rem' // Extra padding to bridge the gap
-            }}
-            onMouseEnter={() => setIsServicesOpen(true)}
-            onMouseLeave={() => setIsServicesOpen(false)}
-          >
-            <div
+          <div style={{ position: 'relative' }}>
+            <button
               style={{
                 color: isActiveLink('/services') ? '#60a5fa' : '#d1d5db',
                 textDecoration: 'none',
@@ -98,12 +91,16 @@ const NavBar: React.FC = () => {
                 borderRadius: '0.375rem',
                 transition: 'all 0.2s ease-in-out',
                 backgroundColor: isServicesOpen ? '#374151' : 'transparent',
-                cursor: 'default',
+                border: 'none',
+                cursor: 'pointer',
                 display: 'flex',
                 alignItems: 'center',
                 gap: '0.25rem',
                 borderBottom: isActiveLink('/services') ? '2px solid #60a5fa' : '2px solid transparent'
               }}
+              onMouseEnter={() => setIsServicesOpen(true)}
+              onMouseLeave={() => setIsServicesOpen(false)}
+              onClick={() => setIsServicesOpen(!isServicesOpen)}
             >
               Services
               <svg style={{
@@ -114,7 +111,7 @@ const NavBar: React.FC = () => {
               }} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
               </svg>
-            </div>
+            </button>
 
             {/* Dropdown Menu */}
             {isServicesOpen && (
@@ -123,22 +120,18 @@ const NavBar: React.FC = () => {
                   position: 'absolute',
                   top: '100%',
                   left: 0,
-                  marginTop: '-0.5rem', // Negative margin to overlap with padding
-                  paddingTop: '0.5rem', // Padding to create invisible bridge
-                  backgroundColor: 'transparent', // Transparent bridge area
+                  marginTop: '0.5rem',
+                  backgroundColor: '#ffffff',
+                  borderRadius: '0.5rem',
+                  boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
+                  minWidth: '220px',
+                  overflow: 'hidden',
                   zIndex: 50
                 }}
+                onMouseEnter={() => setIsServicesOpen(true)}
+                onMouseLeave={() => setIsServicesOpen(false)}
               >
-                <div
-                  style={{
-                    backgroundColor: '#ffffff',
-                    borderRadius: '0.5rem',
-                    boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
-                    minWidth: '220px',
-                    overflow: 'hidden'
-                  }}
-                >
-                  <button
+                <button
                   onClick={() => handleServiceClick('cloud-technologies')}
                   style={{
                     width: '100%',
@@ -212,7 +205,6 @@ const NavBar: React.FC = () => {
                   <div style={{ fontWeight: '600', marginBottom: '0.125rem' }}>Tech Solutions Discovery</div>
                   <div style={{ fontSize: '0.75rem', color: '#6b7280' }}>Architecture & Strategy</div>
                 </button>
-                </div>
               </div>
             )}
           </div>
