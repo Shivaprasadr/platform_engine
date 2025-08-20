@@ -1,0 +1,124 @@
+services:
+  # Keycloak Authentication Services
+  postgres-auth:
+    image: postgres:15
+    environment:
+      POSTGRES_DB: keycloak_db
+      POSTGRES_USER: keycloak_user
+      POSTGRES_PASSWORD: keycloak_password
+    volumes:
+      - postgres_auth_data:/var/lib/postgresql/data
+    networks:
+      - platform_network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U keycloak_user -d keycloak_db"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  keycloak:
+    image: quay.io/keycloak/keycloak:20.0
+    environment:
+      KEYCLOAK_ADMIN: admin
+      KEYCLOAK_ADMIN_PASSWORD: change_me
+      KC_DB: postgres
+      KC_DB_URL: jdbc:postgresql://postgres-auth/keycloak_db
+      KC_DB_USERNAME: keycloak_user
+      KC_DB_PASSWORD: keycloak_password
+    ports:
+      - "8080:8080"
+    command:
+      - start-dev
+    depends_on:
+      postgres-auth:
+        condition: service_healthy
+    networks:
+      - platform_network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 60s
+
+  # Keycloak configuration service (setup realm and clients)
+  keycloak-setup:
+    build:
+      context: ./keycloak-auth/scripts
+      dockerfile: Dockerfile
+    environment:
+      - KEYCLOAK_URL=http://keycloak:8080/
+      - CREATE_PLATFORM_ADMIN=true
+      - KEEP_TEMP_ADMIN=false
+    depends_on:
+      keycloak:
+        condition: service_healthy
+    networks:
+      - platform_network
+    command: sh -c "python keycloak_config.py && python keycloak_clients_config.py"
+    restart: "no"
+
+  # Platform Engine API Service
+  platform-engine-api:
+    build:
+      context: ./platform-engine-api
+    ports:
+      - "4000:4000"
+    environment:
+      - FLASK_ENV=development
+      - KEYCLOAK_SERVER_URL=http://keycloak:8080
+      - KEYCLOAK_REALM_NAME=platform-engine-realm
+      - SQLALCHEMY_DATABASE_URI=postgresql://platform_user:platform_password@platform-engine-api-db:5432/platform_engine_api
+    depends_on:
+      platform-engine-api-db:
+        condition: service_healthy
+      keycloak-setup:
+        condition: service_completed_successfully
+    networks:
+      - platform_network
+
+  platform-engine-api-db:
+    image: postgres:15
+    environment:
+      POSTGRES_DB: platform_engine_api
+      POSTGRES_USER: platform_user
+      POSTGRES_PASSWORD: platform_password
+    ports:
+      - "5433:5432"
+    volumes:
+      - platform_api_data:/var/lib/postgresql/data
+    networks:
+      - platform_network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U platform_user -d platform_engine_api"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Platform Engine Web Application
+  platform-engine-web:
+    build:
+      context: ./platform-engine-web
+    volumes:
+      - ./platform-engine-web:/app
+      - /app/node_modules # Keep node_modules inside container
+    ports:
+      - "3000:3000"
+    environment:
+      - VITE_KEYCLOAK_URL=http://localhost:8080
+      - VITE_KEYCLOAK_REALM=platform-engine-realm
+      - VITE_KEYCLOAK_CLIENT=platform-engine-web
+      - VITE_API_URL=http://localhost:4000
+    depends_on:
+      keycloak-setup:
+        condition: service_completed_successfully
+    networks:
+      - platform_network
+
+volumes:
+  postgres_auth_data:
+  platform_api_data:
+
+networks:
+  platform_network:
+    driver: bridge

@@ -1,0 +1,88 @@
+#root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100vh;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+/* Ensure images are responsive and take up more width */
+.image-container img {
+  width: 100%; /* Make the image responsive */
+  max-width: 1000px; /* Increase the maximum width of the image */
+  height: auto; /* Maintain aspect ratio */
+  object-fit: cover; /* Ensure the image fits nicely */
+}
+
+/* Ensure the content and images are aligned side by side */
+.content-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+@media (min-width: 768px) {
+  .content-section {
+    flex-direction: row; /* Align content and image side by side on larger screens */
+    align-items: center;
+  }
+
+  .content-section.reverse {
+    flex-direction: row-reverse; /* Reverse the order for alternating sections */
+  }
+}
+/* Navbar styles */
+header {
+  position: fixed; /* Fix the navbar at the top */
+  top: 0;
+  left: 0;
+  width: 100%; /* Make the navbar span the full width */
+  z-index: 50; /* Ensure it stays above other elements */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+}
+
+/* Add padding to the body to prevent content from overlapping the navbar */
+body {
+  padding-top: 64px; /* Adjust this value to match the navbar height */
+}
+/* Widen the page container */
+/* Page container for consistent width and spacing */
+.page-container {
+  max-width: 1400px; /* Set the maximum width of the page */
+  margin: 0 auto; /* Center the content horizontally */
+  padding: 0 16px; /* Add padding for white space on the sides */
+}

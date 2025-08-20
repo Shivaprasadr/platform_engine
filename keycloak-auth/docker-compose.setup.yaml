@@ -1,0 +1,26 @@
+version: "3.9"
+
+services:
+  setup-keycloak:
+    build:
+      context: ./scripts
+      dockerfile: Dockerfile
+    depends_on:
+      - keycloak
+    networks:
+      - keycloak_network
+    environment:
+      - KEYCLOAK_URL=http://keycloak:8080/
+      - KEYCLOAK_ADMIN_USER=${KEYCLOAK_ADMIN_USER}
+      - KEYCLOAK_ADMIN_PASS=${KEYCLOAK_ADMIN_PASS}
+      - PLATFORM_ADMIN_USER=platform_admin
+      - PLATFORM_ADMIN_PASS=platform_secure_password_2024
+      - PLATFORM_REALM_NAME=platform-engine-realm
+    volumes:
+      - ./scripts:/app
+    working_dir: /app
+    command: python entrypoint.py
+
+networks:
+  keycloak_network:
+    external: true
