@@ -1,0 +1,113 @@
+{
+  "common": {
+    "loading": "Chargement...",
+    "error": "Erreur",
+    "back": "Retour",
+    "next": "Suivant",
+    "submit": "Soumettre",
+    "cancel": "Annuler",
+    "save": "Sauvegarder",
+    "delete": "Supprimer",
+    "edit": "Modifier",
+    "close": "Fermer"
+  },
+  "navigation": {
+    "home": "Accueil",
+    "services": "Services",
+    "contact": "Contact",
+    "myAccount": "Mon Compte",
+    "myItems": "Mes Éléments",
+    "signIn": "Se Connecter",
+    "signOut": "Se Déconnecter",
+    "getStarted": "Commencer"
+  },
+  "home": {
+    "hero": {
+      "title": "Alimenter l'Évolution des Entreprises avec",
+      "subtitle": "Infrastructure de Nouvelle Génération",
+      "description": "Dans le paysage concurrentiel d'aujourd'hui, l'agilité de l'infrastructure définit les leaders du marché. Alpha Star fournit la base technologique dont votre entreprise a besoin pour innover plus rapidement, évoluer plus intelligemment et rester en avance.",
+      "dashboard": "Aller au Tableau de Bord",
+      "explore": "Explorer les Services"
+    },
+    "features": {
+      "title": "Pourquoi Alpha Star ?",
+      "subtitle": "Conçu pour l'Échelle. Conçu pour la Sécurité. Alimenté par l'Automatisation.",
+      "deployment": {
+        "title": "⚡ Déploiement Rapide",
+        "description": "Lancez l'infrastructure en minutes, pas en heures."
+      },
+      "security": {
+        "title": "🔒 Sécurité d'Entreprise",
+        "description": "Architecture axée sur la conformité avec protection des données intégrée."
+      },
+      "automation": {
+        "title": "🤖 Automatisation Intelligente",
+        "description": "Réduisez les erreurs manuelles et rationalisez les flux de travail."
+      }
+    },
+    "capabilities": {
+      "title": "Excellence en Infrastructure : Ce Que Nous Livrons",
+      "subtitle": "Dans le paysage concurrentiel d'aujourd'hui, l'agilité de l'infrastructure définit les leaders du marché. Alpha Star fournit la base technologique et la profondeur stratégique pour donner vie à vos ambitions numériques avec une vitesse et une sécurité inégalées.",
+      "platformEcosystems": {
+        "title": "Écosystèmes de Plateforme",
+        "description": "Construisez des solutions avec une vitesse et une sécurité améliorées en alignant les alliances technologiques et les écosystèmes."
+      },
+      "advancedTechnology": {
+        "title": "Technologie Avancée",
+        "description": "Concevez, déployez et mise à l'échelle des solutions technologiques de pointe adaptées à vos exigences commerciales spécifiques."
+      },
+      "automatedPlatforms": {
+        "title": "Plateformes Automatisées",
+        "description": "Intégrez une technologie avancée avec vitesse et sécurité en utilisant des plateformes natives cloud et autonomes."
+      },
+      "dataIntelligence": {
+        "title": "Intelligence des Données et Sécurité",
+        "description": "Connectez la sortie technologique aux résultats commerciaux en optimisant les flux de données, l'infrastructure cloud et les capacités d'IA."
+      },
+      "technologyLeadership": {
+        "title": "Leadership Technologique",
+        "description": "Débloquez la valeur de l'industrie en vous associant avec des organisations leaders et en équipant des leaders ambitieux."
+      },
+      "technologyExpertise": {
+        "title": "Expertise Technologique",
+        "description": "Développez des capacités de nouvelle génération au sein de votre organisation en construisant des compétences technologiques et des parcours de carrière."
+      },
+      "marketInnovation": {
+        "title": "Innovation de Marché",
+        "description": "Permettez de nouvelles opportunités de marché en créant des modèles commerciaux innovants et en découvrant de nouveaux flux de revenus."
+      },
+      "strategicImplementation": {
+        "title": "Implémentation Stratégique",
+        "description": "Transformez les investissements technologiques en avantage concurrentiel avec des stratégies d'implémentation éprouvées."
+      }
+    },
+    "solutions": {
+      "title": "Nos Solutions",
+      "subtitle": "Solutions technologiques complètes conçues pour accélérer votre parcours de transformation numérique."
+    }
+  },
+  "services": {
+    "title": "Nos Services",
+    "subtitle": "Solutions complètes pour vos besoins d'infrastructure"
+  },
+  "contact": {
+    "title": "Nous Contacter",
+    "subtitle": "Contactez notre équipe"
+  },
+  "account": {
+    "title": "Mon Compte",
+    "welcome": "Bon retour",
+    "settings": "Paramètres du Compte",
+    "profile": "Profil"
+  },
+  "auth": {
+    "signIn": "Se Connecter",
+    "signOut": "Se Déconnecter",
+    "signUp": "S'Inscrire",
+    "forgotPassword": "Mot de passe oublié ?",
+    "rememberMe": "Se souvenir de moi",
+    "email": "Email",
+    "password": "Mot de passe",
+    "confirmPassword": "Confirmer le Mot de passe"
+  }
+}

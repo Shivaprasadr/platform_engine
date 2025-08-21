@@ -1,8 +1,11 @@
 import React, { useState } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import useKeycloak from '../hooks/useKeycloak'
+import LanguageSwitcher from './LanguageSwitcher'
 
 const NavBar: React.FC = () => {
+  const { t } = useTranslation()
   const [isServicesOpen, setIsServicesOpen] = useState(false)
   const [hoveredLink, setHoveredLink] = useState<string | null>(null)
   const { authenticated, login, logout, register } = useKeycloak()
@@ -44,13 +47,27 @@ const NavBar: React.FC = () => {
       }}>
         {/* Logo */}
         <Link to="/" style={{
-          fontSize: '1.5rem',
-          fontWeight: 'bold',
-          color: '#ffffff',
-          textDecoration: 'none',
-          letterSpacing: '-0.025em'
+          display: 'flex',
+          alignItems: 'center',
+          gap: '0.5rem',
+          textDecoration: 'none'
         }}>
-          Platform Engine ⚡
+          <img 
+            src="/images/alphastar.png" 
+            alt="Alpha Star" 
+            style={{
+              height: '40px',
+              width: 'auto'
+            }}
+          />
+          <span style={{
+            fontSize: '1.5rem',
+            fontWeight: 'bold',
+            color: '#ffffff',
+            letterSpacing: '-0.025em'
+          }}>
+            Alpha Star
+          </span>
         </Link>
 
         {/* Navigation Links */}
@@ -70,7 +87,7 @@ const NavBar: React.FC = () => {
           }}
           onMouseEnter={() => setHoveredLink('/')}
           onMouseLeave={() => setHoveredLink(null)}>
-            Home
+            {t('navigation.home')}
           </Link>
 
           {/* Services Dropdown */}
@@ -97,7 +114,7 @@ const NavBar: React.FC = () => {
                 borderBottom: isActiveLink('/services') ? '2px solid #60a5fa' : '2px solid transparent'
               }}
             >
-              Services
+              {t('navigation.services')}
               <svg style={{
                 width: '1rem',
                 height: '1rem',
@@ -322,7 +339,7 @@ const NavBar: React.FC = () => {
                   e.currentTarget.style.transform = 'translateY(0px)'
                 }}
               >
-                Sign In
+                {t('navigation.signIn')}
               </button>
               <button
                 onClick={register}
@@ -349,10 +366,13 @@ const NavBar: React.FC = () => {
                   e.currentTarget.style.boxShadow = '0 2px 4px rgba(0, 0, 0, 0.1)'
                 }}
               >
-                Get Started
+                {t('navigation.getStarted')}
               </button>
             </>
           )}
+          
+          {/* Language Switcher */}
+          <LanguageSwitcher />
         </div>
       </div>
     </nav>

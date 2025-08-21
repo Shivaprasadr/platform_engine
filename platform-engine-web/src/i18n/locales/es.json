@@ -1,0 +1,113 @@
+{
+  "common": {
+    "loading": "Cargando...",
+    "error": "Error",
+    "back": "Atrás",
+    "next": "Siguiente",
+    "submit": "Enviar",
+    "cancel": "Cancelar",
+    "save": "Guardar",
+    "delete": "Eliminar",
+    "edit": "Editar",
+    "close": "Cerrar"
+  },
+  "navigation": {
+    "home": "Inicio",
+    "services": "Servicios",
+    "contact": "Contacto",
+    "myAccount": "Mi Cuenta",
+    "myItems": "Mis Elementos",
+    "signIn": "Iniciar Sesión",
+    "signOut": "Cerrar Sesión",
+    "getStarted": "Comenzar"
+  },
+  "home": {
+    "hero": {
+      "title": "Impulsando la Evolución Empresarial con",
+      "subtitle": "Infraestructura de Nueva Generación",
+      "description": "En el panorama competitivo de hoy, la agilidad de la infraestructura define a los líderes del mercado. Alpha Star ofrece la base tecnológica que su negocio necesita para innovar más rápido, escalar más inteligentemente y mantenerse a la vanguardia.",
+      "dashboard": "Ir al Panel",
+      "explore": "Explorar Servicios"
+    },
+    "features": {
+      "title": "¿Por qué Alpha Star?",
+      "subtitle": "Construido para Escalar. Diseñado para Seguridad. Impulsado por Automatización.",
+      "deployment": {
+        "title": "⚡ Despliegue Rápido",
+        "description": "Lance infraestructura en minutos, no horas."
+      },
+      "security": {
+        "title": "🔒 Seguridad Empresarial",
+        "description": "Arquitectura que prioriza el cumplimiento con protección de datos integrada."
+      },
+      "automation": {
+        "title": "🤖 Automatización Inteligente",
+        "description": "Reduzca errores manuales y optimice flujos de trabajo."
+      }
+    },
+    "capabilities": {
+      "title": "Excelencia en Infraestructura: Lo Que Entregamos",
+      "subtitle": "En el panorama competitivo de hoy, la agilidad de la infraestructura define a los líderes del mercado. Alpha Star proporciona la base tecnológica y la profundidad estratégica para dar vida a sus ambiciones digitales con velocidad y seguridad incomparables.",
+      "platformEcosystems": {
+        "title": "Ecosistemas de Plataforma",
+        "description": "Construya soluciones con velocidad y seguridad mejoradas alineando alianzas tecnológicas y ecosistemas."
+      },
+      "advancedTechnology": {
+        "title": "Tecnología Avanzada",
+        "description": "Diseñe, implemente y escale soluciones tecnológicas de vanguardia adaptadas a sus requisitos comerciales específicos."
+      },
+      "automatedPlatforms": {
+        "title": "Plataformas Automatizadas",
+        "description": "Integre tecnología avanzada con velocidad y seguridad usando plataformas nativas de la nube y autónomas."
+      },
+      "dataIntelligence": {
+        "title": "Inteligencia de Datos y Seguridad",
+        "description": "Conecte la salida tecnológica con los resultados comerciales optimizando flujos de datos, infraestructura en la nube y capacidades de IA."
+      },
+      "technologyLeadership": {
+        "title": "Liderazgo Tecnológico",
+        "description": "Desbloquee el valor de la industria asociándose con organizaciones líderes y equipando a líderes ambiciosos."
+      },
+      "technologyExpertise": {
+        "title": "Experiencia Tecnológica",
+        "description": "Desarrolle capacidades de próxima generación dentro de su organización construyendo habilidades tecnológicas y trayectorias profesionales."
+      },
+      "marketInnovation": {
+        "title": "Innovación de Mercado",
+        "description": "Habilite nuevas oportunidades de mercado creando modelos comerciales innovadores y descubriendo nuevas fuentes de ingresos."
+      },
+      "strategicImplementation": {
+        "title": "Implementación Estratégica",
+        "description": "Transforme las inversiones tecnológicas en ventaja competitiva con estrategias de implementación probadas."
+      }
+    },
+    "solutions": {
+      "title": "Nuestras Soluciones",
+      "subtitle": "Soluciones tecnológicas integrales diseñadas para acelerar su viaje de transformación digital."
+    }
+  },
+  "services": {
+    "title": "Nuestros Servicios",
+    "subtitle": "Soluciones integrales para sus necesidades de infraestructura"
+  },
+  "contact": {
+    "title": "Contáctanos",
+    "subtitle": "Póngase en contacto con nuestro equipo"
+  },
+  "account": {
+    "title": "Mi Cuenta",
+    "welcome": "Bienvenido de nuevo",
+    "settings": "Configuración de Cuenta",
+    "profile": "Perfil"
+  },
+  "auth": {
+    "signIn": "Iniciar Sesión",
+    "signOut": "Cerrar Sesión",
+    "signUp": "Registrarse",
+    "forgotPassword": "¿Olvidó su contraseña?",
+    "rememberMe": "Recordarme",
+    "email": "Correo electrónico",
+    "password": "Contraseña",
+    "confirmPassword": "Confirmar Contraseña"
+  }
+}
