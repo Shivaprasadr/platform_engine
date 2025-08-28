@@ -44,9 +44,9 @@ const LanguageSwitcher: React.FC = () => {
           gap: '0.5rem',
           padding: '0.5rem 0.75rem',
           backgroundColor: 'transparent',
-          border: '1px solid #374151',
+          border: '1px solid #D1D1D1',
           borderRadius: '0.5rem',
-          color: '#d1d5db',
+          color: '#1A1A1A',
           fontSize: '0.875rem',
           fontWeight: '500',
           cursor: 'pointer',
@@ -55,14 +55,14 @@ const LanguageSwitcher: React.FC = () => {
           justifyContent: 'space-between'
         }}
         onMouseEnter={(e) => {
-          e.currentTarget.style.backgroundColor = '#374151'
-          e.currentTarget.style.color = '#ffffff'
-          e.currentTarget.style.borderColor = '#4b5563'
+          e.currentTarget.style.backgroundColor = 'rgba(0, 0, 0, 0.04)'
+          e.currentTarget.style.color = '#4A4A4A'
+          e.currentTarget.style.borderColor = '#4A4A4A'
         }}
         onMouseLeave={(e) => {
           e.currentTarget.style.backgroundColor = 'transparent'
-          e.currentTarget.style.color = '#d1d5db'
-          e.currentTarget.style.borderColor = '#374151'
+          e.currentTarget.style.color = '#1A1A1A'
+          e.currentTarget.style.borderColor = '#D1D1D1'
         }}
       >
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
@@ -89,7 +89,7 @@ const LanguageSwitcher: React.FC = () => {
             right: '0',
             minWidth: '200px',
             backgroundColor: '#ffffff',
-            border: '1px solid #e5e7eb',
+            border: '1px solid #D1D1D1',
             borderRadius: '0.75rem',
             boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
             zIndex: 1000,
@@ -101,15 +101,15 @@ const LanguageSwitcher: React.FC = () => {
           <div
             style={{
               padding: '0.75rem 1rem',
-              backgroundColor: '#f9fafb',
-              borderBottom: '1px solid #e5e7eb'
+              backgroundColor: '#F3F3F3',
+              borderBottom: '1px solid #D1D1D1'
             }}
           >
             <div style={{ 
               display: 'flex', 
               alignItems: 'center', 
               gap: '0.5rem',
-              color: '#374151',
+              color: '#1A1A1A',
               fontSize: '0.875rem',
               fontWeight: '600'
             }}>
@@ -130,8 +130,8 @@ const LanguageSwitcher: React.FC = () => {
                   alignItems: 'center',
                   gap: '0.75rem',
                   padding: '0.75rem 1rem',
-                  backgroundColor: currentLanguage.code === language.code ? '#eff6ff' : 'transparent',
-                  color: currentLanguage.code === language.code ? '#2563eb' : '#374151',
+                  backgroundColor: currentLanguage.code === language.code ? 'rgba(240, 240, 240, 0.8)' : 'transparent',
+                  color: currentLanguage.code === language.code ? '#000000' : '#1A1A1A',
                   border: 'none',
                   borderRadius: '0.5rem',
                   cursor: 'pointer',
@@ -141,7 +141,7 @@ const LanguageSwitcher: React.FC = () => {
                 }}
                 onMouseEnter={(e) => {
                   if (currentLanguage.code !== language.code) {
-                    e.currentTarget.style.backgroundColor = '#f3f4f6'
+                    e.currentTarget.style.backgroundColor = 'rgba(240, 240, 240, 0.4)'
                   }
                 }}
                 onMouseLeave={(e) => {
@@ -155,7 +155,7 @@ const LanguageSwitcher: React.FC = () => {
                   <span style={{ fontWeight: '500' }}>{language.name}</span>
                   <span style={{ 
                     fontSize: '0.75rem', 
-                    color: currentLanguage.code === language.code ? '#3b82f6' : '#6b7280',
+                    color: currentLanguage.code === language.code ? '#4A4A4A' : '#6b7280',
                     marginTop: '0.125rem'
                   }}>
                     {language.nativeName}
@@ -166,7 +166,7 @@ const LanguageSwitcher: React.FC = () => {
                     marginLeft: 'auto',
                     width: '8px',
                     height: '8px',
-                    backgroundColor: '#2563eb',
+                    backgroundColor: '#4A4A4A',
                     borderRadius: '50%'
                   }} />
                 )}

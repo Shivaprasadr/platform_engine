@@ -103,7 +103,7 @@ const CapabilityGrid: React.FC<CapabilityGridProps> = ({
   const displayCapabilities = capabilities || defaultCapabilities
   
   return (
-    <section className={`py-16 bg-gray-50 ${className}`}>
+    <section className={`py-16 ${className}`} style={{ backgroundColor: '#F3F3F3' }}>
       <div className="container mx-auto px-6">
         {(displayTitle || displaySubtitle) && (
           <div className="text-center mb-12">
@@ -122,7 +122,12 @@ const CapabilityGrid: React.FC<CapabilityGridProps> = ({
             style={{ 
               display: 'grid',
               gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-              gap: '1.5rem'
+              gap: '1.5rem',
+              padding: '2rem',
+              backgroundColor: '#ffffff',
+              borderRadius: '1rem',
+              border: '1px solid #e5e7eb',
+              boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)'
             }}
           >
             {displayCapabilities.map((capability, index) => (

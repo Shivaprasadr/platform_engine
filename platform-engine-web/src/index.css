@@ -95,3 +95,56 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+/* Advanced Animations for Modern UI */
+@keyframes float {
+  0%, 100% { 
+    transform: translateY(0px) rotate(0deg); 
+  }
+  33% { 
+    transform: translateY(-30px) rotate(120deg); 
+  }
+  66% { 
+    transform: translateY(-60px) rotate(240deg); 
+  }
+}
+
+@keyframes pulse {
+  0% { 
+    opacity: 0.6; 
+  }
+  100% { 
+    opacity: 1; 
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(59, 130, 246, 0.4);
+  }
+}
+
+/* Gradient Animation */
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
