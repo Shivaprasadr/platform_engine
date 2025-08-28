@@ -1,25 +1,27 @@
-import React from 'react'
-import { useTranslation } from 'react-i18next'
-import CapabilityCard from './CapabilityCard'
-import { MdSecurity, MdIntegrationInstructions } from 'react-icons/md'
-import { FaCode, FaRocket, FaUsers, FaLightbulb, FaCheckCircle } from 'react-icons/fa'
-import { BsLightning } from 'react-icons/bs'
+import CapabilityCard from "./CapabilityCard";
+import React from "react";
+import { theme } from "../theme";
+import { parseFont } from "../utils/parseFont";
+import { useTranslation } from "react-i18next";
+import { MdIntegrationInstructions, MdSecurity } from "react-icons/md";
+import { FaCode, FaUsers, FaRocket, FaLightbulb, FaCheckCircle } from "react-icons/fa";
+import { BsLightning } from "react-icons/bs";
 
 interface CapabilityData {
-  icon: React.ReactNode
-  title: string
-  description: string
-  gradientFrom: string
-  gradientTo: string
-  linkColor: string
+  icon: React.ReactNode;
+  title: string;
+  description: string;
+  gradientFrom: string;
+  gradientTo: string;
+  linkColor: string;
 }
 
 interface CapabilityGridProps {
-  title?: string
-  subtitle?: string
-  capabilities?: CapabilityData[]
-  columns?: 1 | 2 | 3 | 4
-  className?: string
+  title?: string;
+  subtitle?: string;
+  capabilities?: CapabilityData[];
+  columns?: 1 | 2 | 3 | 4;
+  className?: string;
 }
 
 const CapabilityGrid: React.FC<CapabilityGridProps> = ({
@@ -28,11 +30,11 @@ const CapabilityGrid: React.FC<CapabilityGridProps> = ({
   capabilities,
   className = ""
 }) => {
-  const { t } = useTranslation()
-  
-  const displayTitle = title || t('home.capabilities.title')
-  const displaySubtitle = subtitle || t('home.capabilities.subtitle')
-  
+  const { t } = useTranslation();
+
+  const displayTitle = title || t('home.capabilities.title');
+  const displaySubtitle = subtitle || t('home.capabilities.subtitle');
+
   const defaultCapabilities: CapabilityData[] = [
     {
       icon: <MdIntegrationInstructions />,
@@ -98,36 +100,65 @@ const CapabilityGrid: React.FC<CapabilityGridProps> = ({
       gradientTo: "to-pink-600",
       linkColor: "text-pink-600"
     }
-  ]
-  
-  const displayCapabilities = capabilities || defaultCapabilities
-  
+  ];
+
+  const displayCapabilities = capabilities || defaultCapabilities;
+
   return (
-    <section className={`py-16 ${className}`} style={{ backgroundColor: '#F3F3F3' }}>
+    <section className={`py-16 ${className}`} style={{ backgroundColor: theme.colors.background }}>
       <div className="container mx-auto px-6">
         {(displayTitle || displaySubtitle) && (
-          <div className="text-center mb-12">
+          <div className="mb-12" style={{ textAlign: 'left', maxWidth: '900px', marginLeft: 0 }}>
             {displayTitle && (
-              <h2 className="text-3xl font-bold text-gray-900 mb-4">{displayTitle}</h2>
+              <h2
+                style={{
+                  color: theme.colors.textPrimary,
+                  ...parseFont(theme.font.headline),
+                  fontSize: '2.75rem',
+                  fontWeight: 900,
+                  marginBottom: '1rem',
+                  lineHeight: 1.08,
+                  maxWidth: '900px',
+                  whiteSpace: 'normal',
+                  overflowWrap: 'break-word'
+                }}
+                className="mb-4"
+              >
+                {displayTitle}
+              </h2>
             )}
             {displaySubtitle && (
-              <p className="text-base text-gray-600 max-w-4xl mx-auto leading-relaxed">{displaySubtitle}</p>
+              <p
+                style={{
+                  color: theme.colors.textSecondary,
+                  ...parseFont(theme.font.subheadline),
+                  fontSize: '1.25rem',
+                  maxWidth: '700px',
+                  margin: '0 0 2rem 0',
+                  opacity: 0.85,
+                  lineHeight: 1.35,
+                  textAlign: 'left',
+                  whiteSpace: 'normal',
+                  overflowWrap: 'break-word'
+                }}
+              >
+                {displaySubtitle}
+              </p>
             )}
           </div>
         )}
-
-        <div className="max-w-7xl mx-auto">
-          <div 
+        <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
+          <div
             className="grid gap-6 place-items-start"
-            style={{ 
+            style={{
               display: 'grid',
               gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
               gap: '1.5rem',
-              padding: '2rem',
-              backgroundColor: '#ffffff',
-              borderRadius: '1rem',
-              border: '1px solid #e5e7eb',
-              boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)'
+              padding: theme.spacing.cardPadding,
+              backgroundColor: theme.colors.surface,
+              borderRadius: theme.spacing.cardRadius,
+              border: `1px solid ${theme.colors.border}`,
+              boxShadow: theme.spacing.cardShadow
             }}
           >
             {displayCapabilities.map((capability, index) => (
@@ -144,7 +175,7 @@ const CapabilityGrid: React.FC<CapabilityGridProps> = ({
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default CapabilityGrid
+export default CapabilityGrid;

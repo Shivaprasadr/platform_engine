@@ -20,7 +20,7 @@ const HomePage: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen" style={{ backgroundColor: '#F3F3F3' }}>
+  <div className="min-h-screen" style={{ backgroundColor: '#F3F3F3' }}>
       {/* Ultra-Modern Hero Section - Edge Light Theme */}
       <section 
         style={{
@@ -75,7 +75,7 @@ const HomePage: React.FC = () => {
         />
 
         <div className="container mx-auto px-6 text-center relative z-10">
-          {/* Enhanced Modern Headline - Edge Theme */}
+          {/* Modern Headline - Edge Theme */}
           <div className="mb-8">
             <h1
               style={{
@@ -96,7 +96,6 @@ const HomePage: React.FC = () => {
             >
               Powering Business Evolution
             </h1>
-            
             <div
               style={{
                 fontSize: 'clamp(2rem, 5vw, 4rem)',
@@ -154,6 +153,7 @@ const HomePage: React.FC = () => {
             </p>
             
             {/* Enhanced Key Features Row */}
+            {/* Key Features Row - Synced with Theme */}
             <div 
               style={{
                 display: 'flex',
@@ -164,56 +164,34 @@ const HomePage: React.FC = () => {
                 margin: '0 auto'
               }}
             >
-              {[
-                { icon: '🚀', text: 'AI-Powered DevOps', desc: 'Intelligent automation' },
-                { icon: '⚡', text: 'Edge Computing', desc: 'Ultra-low latency' },
-                { icon: '🔒', text: 'Zero-Trust Security', desc: 'Enterprise-grade protection' },
-                { icon: '🌐', text: 'Multi-Cloud Native', desc: 'Vendor-agnostic flexibility' }
-              ].map((feature, index) => (
-                <div
-                  key={index}
-                  style={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    alignItems: 'center',
-                    padding: '1rem',
-                    background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.8), rgba(248, 248, 248, 0.6))',
-                    borderRadius: '1rem',
-                    border: '1px solid rgba(209, 209, 209, 0.3)',
-                    boxShadow: '0 4px 12px rgba(0, 0, 0, 0.08)',
-                    backdropFilter: 'blur(8px)',
-                    transition: 'all 0.3s ease',
-                    cursor: 'pointer',
-                    minWidth: '140px'
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.transform = 'translateY(-4px) scale(1.02)'
-                    e.currentTarget.style.boxShadow = '0 8px 25px rgba(0, 0, 0, 0.12)'
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.transform = 'translateY(0) scale(1)'
-                    e.currentTarget.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.08)'
-                  }}
-                >
-                  <div style={{ fontSize: '2rem', marginBottom: '0.5rem' }}>{feature.icon}</div>
-                  <div style={{ 
-                    fontSize: '0.875rem', 
-                    fontWeight: '600', 
-                    color: '#1A1A1A',
-                    textAlign: 'center',
-                    marginBottom: '0.25rem'
-                  }}>
-                    {feature.text}
-                  </div>
-                  <div style={{ 
-                    fontSize: '0.75rem', 
-                    color: '#4A4A4A',
-                    textAlign: 'center'
-                  }}>
-                    {feature.desc}
-                  </div>
-                </div>
-              ))}
+              <div style={{
+                display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '1rem', background: 'linear-gradient(135deg, #F3F3F3, #E8E8E8)', borderRadius: '1rem', border: '1px solid #D1D1D1', boxShadow: '0 4px 12px rgba(0,0,0,0.08)', minWidth: '140px'
+              }}>
+                <FaCogs style={{ fontSize: '2rem', color: '#1A1A1A', marginBottom: '0.5rem' }} />
+                <div style={{ fontSize: '0.875rem', fontWeight: '600', color: '#1A1A1A', textAlign: 'center', marginBottom: '0.25rem' }}>AI-Powered DevOps</div>
+                <div style={{ fontSize: '0.75rem', color: '#4A4A4A', textAlign: 'center' }}>Intelligent automation</div>
+              </div>
+              <div style={{
+                display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '1rem', background: 'linear-gradient(135deg, #F3F3F3, #E8E8E8)', borderRadius: '1rem', border: '1px solid #D1D1D1', boxShadow: '0 4px 12px rgba(0,0,0,0.08)', minWidth: '140px'
+              }}>
+                <FaRocket style={{ fontSize: '2rem', color: '#1A1A1A', marginBottom: '0.5rem' }} />
+                <div style={{ fontSize: '0.875rem', fontWeight: '600', color: '#1A1A1A', textAlign: 'center', marginBottom: '0.25rem' }}>Edge Computing</div>
+                <div style={{ fontSize: '0.75rem', color: '#4A4A4A', textAlign: 'center' }}>Ultra-low latency</div>
+              </div>
+              <div style={{
+                display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '1rem', background: 'linear-gradient(135deg, #F3F3F3, #E8E8E8)', borderRadius: '1rem', border: '1px solid #D1D1D1', boxShadow: '0 4px 12px rgba(0,0,0,0.08)', minWidth: '140px'
+              }}>
+                <FaShieldAlt style={{ fontSize: '2rem', color: '#1A1A1A', marginBottom: '0.5rem' }} />
+                <div style={{ fontSize: '0.875rem', fontWeight: '600', color: '#1A1A1A', textAlign: 'center', marginBottom: '0.25rem' }}>Zero-Trust Security</div>
+                <div style={{ fontSize: '0.75rem', color: '#4A4A4A', textAlign: 'center' }}>Enterprise-grade protection</div>
+              </div>
+              <div style={{
+                display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '1rem', background: 'linear-gradient(135deg, #F3F3F3, #E8E8E8)', borderRadius: '1rem', border: '1px solid #D1D1D1', boxShadow: '0 4px 12px rgba(0,0,0,0.08)', minWidth: '140px'
+              }}>
+                <SiKubernetes style={{ fontSize: '2rem', color: '#1A1A1A', marginBottom: '0.5rem' }} />
+                <div style={{ fontSize: '0.875rem', fontWeight: '600', color: '#1A1A1A', textAlign: 'center', marginBottom: '0.25rem' }}>Multi-Cloud Native</div>
+                <div style={{ fontSize: '0.75rem', color: '#4A4A4A', textAlign: 'center' }}>Vendor-agnostic flexibility</div>
+              </div>
             </div>
           </div>
           
@@ -242,15 +220,34 @@ const HomePage: React.FC = () => {
           )}
 
           {/* Technology Icons - Grayscale Theme */}
-          <div className="grid grid-cols-4 md:grid-cols-8 gap-6 max-w-4xl mx-auto items-center">
-            <SiKubernetes className="text-4xl md:text-5xl mx-auto hover:scale-110 transition-transform" style={{ color: '#1A1A1A' }} />
-            <VscGithub className="text-4xl md:text-5xl mx-auto hover:scale-110 transition-transform" style={{ color: '#1A1A1A' }} />
-            <SiHelm className="text-4xl md:text-5xl mx-auto hover:scale-110 transition-transform" style={{ color: '#4A4A4A' }} />
-            <FaAws className="text-4xl md:text-5xl mx-auto hover:scale-110 transition-transform" style={{ color: '#1A1A1A' }} />
-            <VscAzureDevops className="text-4xl md:text-5xl mx-auto hover:scale-110 transition-transform" style={{ color: '#4A4A4A' }} />
-            <VscAzure className="text-4xl md:text-5xl mx-auto hover:scale-110 transition-transform" style={{ color: '#1A1A1A' }} />
-            <BiLogoGoogleCloud className="text-4xl md:text-5xl mx-auto hover:scale-110 transition-transform" style={{ color: '#4A4A4A' }} />
-            <SiDocker className="text-4xl md:text-5xl mx-auto hover:scale-110 transition-transform" style={{ color: '#1A1A1A' }} />
+          {/* Technology Icons Sidebar - Right Side Vertical, Rotating */}
+          <div
+            style={{
+              position: 'absolute',
+              top: '50%',
+              right: '0',
+              transform: 'translateY(-50%)',
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '2.5rem',
+              background: 'rgba(243,243,243,0.85)',
+              borderRadius: '2rem 0 0 2rem',
+              boxShadow: '0 8px 32px rgba(0,0,0,0.08)',
+              padding: '2rem 1rem',
+              zIndex: 20,
+              alignItems: 'center',
+              width: '120px',
+              minHeight: '600px'
+            }}
+          >
+            <div className="tech-icon-circle"><SiKubernetes style={{ fontSize: '3rem', color: '#1A1A1A', animation: 'iconRotate 3s linear infinite' }} /></div>
+            <div className="tech-icon-circle"><SiHelm style={{ fontSize: '3rem', color: '#4A4A4A', animation: 'iconRotate 3.5s linear infinite' }} /></div>
+            <div className="tech-icon-circle"><SiDocker style={{ fontSize: '3rem', color: '#1A1A1A', animation: 'iconRotate 4s linear infinite' }} /></div>
+            <div className="tech-icon-circle"><FaAws style={{ fontSize: '3rem', color: '#1A1A1A', animation: 'iconRotate 4.5s linear infinite' }} /></div>
+            <div className="tech-icon-circle"><VscAzureDevops style={{ fontSize: '3rem', color: '#4A4A4A', animation: 'iconRotate 5s linear infinite' }} /></div>
+            <div className="tech-icon-circle"><VscAzure style={{ fontSize: '3rem', color: '#1A1A1A', animation: 'iconRotate 5.5s linear infinite' }} /></div>
+            <div className="tech-icon-circle"><BiLogoGoogleCloud style={{ fontSize: '3rem', color: '#4A4A4A', animation: 'iconRotate 6s linear infinite' }} /></div>
+            <div className="tech-icon-circle"><VscGithub style={{ fontSize: '3rem', color: '#1A1A1A', animation: 'iconRotate 6.5s linear infinite' }} /></div>
           </div>
         </div>
       </section>
@@ -379,7 +376,7 @@ const HomePage: React.FC = () => {
                 style={{
                   width: '100px',
                   height: '100px',
-                  background: 'linear-gradient(135deg, #d1d5db, #374151)',
+                  background: 'linear-gradient(135deg, #D1D1D1 60%, #4A4A4A 100%)',
                   borderRadius: '50%',
                   display: 'flex',
                   alignItems: 'center',
@@ -389,7 +386,7 @@ const HomePage: React.FC = () => {
                   position: 'relative'
                 }}
               >
-                <FaRocket style={{ fontSize: '2.5rem', color: '#ffffff' }} />
+                <FaRocket style={{ fontSize: '2.5rem', color: '#1A1A1A' }} />
                 <div
                   style={{
                     position: 'absolute',
@@ -397,7 +394,7 @@ const HomePage: React.FC = () => {
                     left: '-2px',
                     right: '-2px',
                     bottom: '-2px',
-                    background: 'linear-gradient(135deg, rgba(209, 213, 219, 0.6), rgba(55, 65, 81, 0.6))',
+                    background: 'linear-gradient(135deg, rgba(209, 209, 209, 0.5), rgba(74, 74, 74, 0.5))',
                     borderRadius: '50%',
                     zIndex: -1,
                     filter: 'blur(4px)'
@@ -411,10 +408,14 @@ const HomePage: React.FC = () => {
                   color: '#1A1A1A',
                   marginBottom: '1.5rem',
                   textAlign: 'center',
-                  letterSpacing: '-0.01em'
+                  letterSpacing: '-0.01em',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  gap: '0.5rem'
                 }}
               >
-                ⚡ Rapid Deployment
+                <FaRocket style={{ fontSize: '1.5rem', color: '#1A1A1A' }} /> Rapid Deployment
               </h3>
               <p
                 style={{
@@ -474,7 +475,7 @@ const HomePage: React.FC = () => {
                 style={{
                   width: '100px',
                   height: '100px',
-                  background: 'linear-gradient(135deg, #d1d5db, #374151)',
+                  background: 'linear-gradient(135deg, #D1D1D1 60%, #4A4A4A 100%)',
                   borderRadius: '50%',
                   display: 'flex',
                   alignItems: 'center',
@@ -484,7 +485,7 @@ const HomePage: React.FC = () => {
                   position: 'relative'
                 }}
               >
-                <FaShieldAlt style={{ fontSize: '2.5rem', color: '#ffffff' }} />
+                <FaShieldAlt style={{ fontSize: '2.5rem', color: '#1A1A1A' }} />
                 <div
                   style={{
                     position: 'absolute',
@@ -492,7 +493,7 @@ const HomePage: React.FC = () => {
                     left: '-2px',
                     right: '-2px',
                     bottom: '-2px',
-                    background: 'linear-gradient(135deg, rgba(209, 213, 219, 0.6), rgba(55, 65, 81, 0.6))',
+                    background: 'linear-gradient(135deg, rgba(209, 209, 209, 0.5), rgba(74, 74, 74, 0.5))',
                     borderRadius: '50%',
                     zIndex: -1,
                     filter: 'blur(4px)'
@@ -506,10 +507,14 @@ const HomePage: React.FC = () => {
                   color: '#1A1A1A',
                   marginBottom: '1.5rem',
                   textAlign: 'center',
-                  letterSpacing: '-0.01em'
+                  letterSpacing: '-0.01em',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  gap: '0.5rem'
                 }}
               >
-                🔒 Enterprise Security
+                <FaShieldAlt style={{ fontSize: '1.5rem', color: '#1A1A1A' }} /> Enterprise Security
               </h3>
               <p
                 style={{
@@ -569,7 +574,7 @@ const HomePage: React.FC = () => {
                 style={{
                   width: '100px',
                   height: '100px',
-                  background: 'linear-gradient(135deg, #d1d5db, #374151)',
+                  background: 'linear-gradient(135deg, #D1D1D1 60%, #4A4A4A 100%)',
                   borderRadius: '50%',
                   display: 'flex',
                   alignItems: 'center',
@@ -579,7 +584,7 @@ const HomePage: React.FC = () => {
                   position: 'relative'
                 }}
               >
-                <FaCogs style={{ fontSize: '2.5rem', color: '#ffffff' }} />
+                <FaCogs style={{ fontSize: '2.5rem', color: '#1A1A1A' }} />
                 <div
                   style={{
                     position: 'absolute',
@@ -587,7 +592,7 @@ const HomePage: React.FC = () => {
                     left: '-2px',
                     right: '-2px',
                     bottom: '-2px',
-                    background: 'linear-gradient(135deg, rgba(209, 213, 219, 0.6), rgba(55, 65, 81, 0.6))',
+                    background: 'linear-gradient(135deg, rgba(209, 209, 209, 0.5), rgba(74, 74, 74, 0.5))',
                     borderRadius: '50%',
                     zIndex: -1,
                     filter: 'blur(4px)'
@@ -601,10 +606,14 @@ const HomePage: React.FC = () => {
                   color: '#1A1A1A',
                   marginBottom: '1.5rem',
                   textAlign: 'center',
-                  letterSpacing: '-0.01em'
+                  letterSpacing: '-0.01em',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  gap: '0.5rem'
                 }}
               >
-                🤖 Intelligent Automation
+                <FaCogs style={{ fontSize: '1.5rem', color: '#1A1A1A' }} /> Intelligent Automation
               </h3>
               <p
                 style={{
@@ -624,8 +633,8 @@ const HomePage: React.FC = () => {
 
       {/* Digital Capabilities Section - Using Reusable Component */}
       <CapabilityGrid 
-        title="Infrastructure Excellence: What We Deliver"
-        subtitle="In today's competitive landscape, infrastructure agility defines market leaders. Unknown provides the technology foundation and strategic depth to bring your digital ambitions to life with unmatched speed and security."
+        title="Digital Capabilities"
+        subtitle="Explore our core technology strengths and platform features."
         columns={4}
       />
 
@@ -717,6 +726,21 @@ const HomePage: React.FC = () => {
 
       {/* Enhanced CSS Animations */}
       <style>{`
+        .tech-icon-circle {
+          width: 80px;
+          height: 80px;
+          background: linear-gradient(135deg, #F3F3F3 60%, #E8E8E8 100%);
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          box-shadow: 0 4px 16px rgba(0,0,0,0.08), 0 0 0 2px #D1D1D1;
+          margin: 0 auto;
+        }
+        @keyframes iconRotate {
+          0% { transform: rotate(0deg); }
+          100% { transform: rotate(360deg); }
+        }
         @keyframes gradientShift {
           0% {
             background-position: 0% 50%;

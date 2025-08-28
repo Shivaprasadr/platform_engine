@@ -1,4 +1,6 @@
+import { parseFont } from '../utils/parseFont'
 import React from 'react'
+import { theme } from '../theme'
 import { FaCloud, FaShieldAlt, FaTachometerAlt, FaArrowRight } from 'react-icons/fa'
 
 interface SolutionData {
@@ -18,15 +20,15 @@ interface SolutionsGridProps {
 }
 
 const SolutionsGrid: React.FC<SolutionsGridProps> = ({
-  title = "Our Solutions",
-  subtitle = "Tailored Technology for Every Business Need",
+  title = "Tailored Technology for Every Business Need",
+  subtitle = "Our solutions are designed to meet the unique needs of every business, ensuring flexibility, security, and performance.",
   className = ""
 }) => {
   
   const solutions: SolutionData[] = [
     {
       icon: <FaCloud />,
-      image: "/images/cloudmigration.jpg",
+      image: "/images/solutiongrid-cloudmigration.jpg",
       title: "Cloud Migration",
       description: "Seamless transitions with zero downtime.",
       gradientFrom: "from-blue-500",
@@ -35,7 +37,7 @@ const SolutionsGrid: React.FC<SolutionsGridProps> = ({
     },
     {
       icon: <FaShieldAlt />,
-      image: "/images/security-and-compliance.jpg", 
+      image: "/images/solutiongrid-security-and-compliance.jpg", 
       title: "Security & Compliance",
       description: "Stay ahead of regulations and threats.",
       gradientFrom: "from-green-500",
@@ -44,7 +46,7 @@ const SolutionsGrid: React.FC<SolutionsGridProps> = ({
     },
     {
       icon: <FaTachometerAlt />,
-      image: "/images/performance-and-optimization.jpg",
+      image: "/images/solutiongrid-performance-and-optimization.jpg",
       title: "Performance Optimization", 
       description: "Maximize speed and efficiency across systems.",
       gradientFrom: "from-purple-500",
@@ -54,11 +56,40 @@ const SolutionsGrid: React.FC<SolutionsGridProps> = ({
   ]
   
   return (
-    <section className={`py-16 ${className}`} style={{ backgroundColor: '#FFFFFF' }}>
+  <section className={`py-16 ${className}`} style={{ backgroundColor: theme.colors.surface }}>
       <div className="container mx-auto px-6">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">{title}</h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">{subtitle}</p>
+        <div className="mb-12" style={{ textAlign: 'left', maxWidth: '900px', marginLeft: 0 }}>
+          <h2
+            style={{
+              color: theme.colors.textPrimary,
+              ...parseFont(theme.font.headline),
+              fontSize: '2.75rem',
+              fontWeight: 900,
+              marginBottom: '1rem',
+              lineHeight: 1.08,
+              maxWidth: '900px',
+              whiteSpace: 'normal',
+              overflowWrap: 'break-word'
+            }}
+          >
+            {title}
+          </h2>
+          <p
+            style={{
+              color: theme.colors.textSecondary,
+              ...parseFont(theme.font.subheadline),
+              fontSize: '1.25rem',
+              maxWidth: '700px',
+              margin: '0 0 2rem 0',
+              opacity: 0.85,
+              lineHeight: 1.35,
+              textAlign: 'left',
+              whiteSpace: 'normal',
+              overflowWrap: 'break-word'
+            }}
+          >
+            {subtitle}
+          </p>
         </div>
 
         <div className="max-w-7xl mx-auto">
@@ -67,7 +98,8 @@ const SolutionsGrid: React.FC<SolutionsGridProps> = ({
               display: 'grid',
               gridTemplateColumns: 'repeat(3, 1fr)',
               gap: '2.5rem',
-              marginBottom: '3rem'
+              marginBottom: '3rem',
+              ...theme.spacing
             }}
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
           >
@@ -75,10 +107,10 @@ const SolutionsGrid: React.FC<SolutionsGridProps> = ({
               <div
                 key={index}
                 style={{
-                  backgroundColor: '#ffffff',
-                  borderRadius: '1.5rem',
-                  border: '2px solid #e5e7eb',
-                  boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
+                  backgroundColor: theme.colors.surface,
+                  borderRadius: theme.spacing.cardRadius,
+                  border: `2px solid ${theme.colors.border}`,
+                  boxShadow: theme.spacing.cardShadow,
                   overflow: 'hidden',
                   transition: 'all 0.4s ease-in-out',
                   cursor: 'pointer',
@@ -260,9 +292,8 @@ const SolutionsGrid: React.FC<SolutionsGridProps> = ({
                 <div style={{ padding: '2rem' }}>
                   <h3 
                     style={{ 
-                      fontSize: '1.5rem',
-                      fontWeight: '700',
-                      color: '#1f2937',
+                      ...parseFont(theme.font.cardTitle),
+                      color: theme.colors.textPrimary,
                       marginBottom: '1rem'
                     }}
                   >
@@ -270,8 +301,7 @@ const SolutionsGrid: React.FC<SolutionsGridProps> = ({
                   </h3>
                   <p 
                     style={{ 
-                      color: '#6b7280',
-                      fontSize: '1rem',
+                      ...parseFont(theme.font.cardText),
                       lineHeight: '1.6',
                       marginBottom: '1.5rem'
                     }}
@@ -313,7 +343,7 @@ const SolutionsGrid: React.FC<SolutionsGridProps> = ({
           <div className="text-center">
             <button
               style={{
-                background: 'linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%)',
+                background: '#111111',
                 color: '#ffffff',
                 border: 'none',
                 padding: '1rem 2rem',
