@@ -270,7 +270,7 @@ const NavBar: React.FC = () => {
           }}
           onMouseEnter={() => setHoveredLink('/contact')}
           onMouseLeave={() => setHoveredLink(null)}>
-            Contact
+            {t('navigation.contact')}
           </Link>
 
           {authenticated && (

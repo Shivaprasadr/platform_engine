@@ -22,29 +22,17 @@
     "getStarted": "Get Started"
   },
   "home": {
+    "headline": "Powering Business Evolution",
+    "subheadline": "Next-Generation Infrastructure for Modern Enterprises",
+    "description": "In today's competitive landscape, infrastructure agility defines market leaders. We deliver the technology foundation your business needs to innovate faster, scale smarter, and stay ahead.",
     "hero": {
       "title": "Powering Business Evolution with",
       "subtitle": "Next-Generation Infrastructure",
       "description": "In today's competitive landscape, infrastructure agility defines market leaders. Unknown delivers the technology foundation your business needs to innovate faster, scale smarter, and stay ahead.",
       "dashboard": "Go to Dashboard",
       "explore": "Explore Services"
-    },
-    "features": {
-      "title": "Why Unknown?",
-      "subtitle": "Built for Scale. Designed for Security. Powered by Automation.",
-      "deployment": {
-        "title": "⚡ Rapid Deployment",
-        "description": "Launch infrastructure in minutes, not hours."
-      },
-      "security": {
-        "title": "🔒 Enterprise Security",
-        "description": "Compliance-first architecture with built-in data protection."
-      },
-      "automation": {
-        "title": "🤖 Intelligent Automation",
-        "description": "Reduce manual errors and streamline workflows."
-      }
-    },
+    }
+    ,
     "capabilities": {
       "title": "Infrastructure Excellence: What We Deliver",
       "subtitle": "In today's competitive landscape, infrastructure agility defines market leaders. Unknown provides the technology foundation and strategic depth to bring your digital ambitions to life with unmatched speed and security.",
@@ -81,18 +69,148 @@
         "description": "Transform technology investments into competitive advantage with proven implementation strategies."
       }
     },
-    "solutions": {
-      "title": "Our Solutions",
-      "subtitle": "Comprehensive technology solutions designed to accelerate your digital transformation journey."
+    "ctaReady": {
+      "title": "Ready to Scale Your Business?",
+      "subtitle": "Join leading companies using Unknown for secure, scalable infrastructure solutions.",
+      "authCta": "Go to My Items",
+      "anonCta": "Contact Sales"
     }
+  },
+  "features": {
+    "title": "Why Unknown?",
+    "subtitle": "Built for Scale. Designed for Security. Powered by Automation.",
+    "deployment": {
+      "title": "⚡ Rapid Deployment",
+      "description": "Launch infrastructure in minutes, not hours."
+    },
+    "security": {
+      "title": "🔒 Enterprise Security",
+      "description": "Compliance-first architecture with built-in data protection."
+    },
+    "automation": {
+      "title": "🤖 Intelligent Automation",
+      "description": "Reduce manual errors and streamline workflows."
+    },
+    "keyRow": {
+      "devops": {
+        "title": "DevOps Integration",
+        "description": "Seamless CI/CD pipelines and automated deployments."
+      },
+      "edge": {
+        "title": "Edge Computing",
+        "description": "Real-time data processing at the network edge."
+      },
+      "security": {
+        "title": "Security & Compliance",
+        "description": "End-to-end protection and regulatory compliance."
+      },
+      "multiCloud": {
+        "title": "Multi-Cloud Flexibility",
+        "description": "Deploy across AWS, Azure, GCP, and more."
+      }
+    }
+  },
+  "contact": {
+    "title": "Contact Us",
+    "subtitle": "Reach out to our team or submit your questions here.",
+    "form": {
+      "title": "Contact Form",
+      "name": "Name",
+      "email": "Email Address",
+      "subject": "Subject",
+      "message": "Message",
+      "placeholder": {
+        "name": "Your full name",
+        "email": "your.email@example.com",
+        "subject": "Project inquiry",
+        "message": "Tell us about your project requirements..."
+      },
+      "send": "Send"
+    },
+    "info": {
+      "title": "Contact Information",
+      "emailTitle": "Email",
+      "email": "info@example.com",
+      "phoneTitle": "Phone",
+      "phone": "+1 234 567 8900",
+      "officeTitle": "Office Address",
+      "office": "New York, NY, USA",
+      "hoursTitle": "Business Hours",
+      "hours": "Mon-Fri: 9am to 6pm"
+    }
+  },
+  
+  "solutions": {
+    "title": "Our Solutions",
+    "subtitle": "Comprehensive technology solutions designed to accelerate your digital transformation journey.",
+    "cloudMigration": {
+      "title": "Cloud Migration",
+      "description": "Build solutions with enhanced speed and security by aligning technology alliances and ecosystems."
+    },
+    "securityCompliance": {
+      "title": "Security & Compliance",
+      "description": "Implement security practices that meet regulatory requirements and accountability."
+    },
+    "performanceOptimization": {
+      "title": "Performance & Optimization",
+      "description": "Use advanced techniques to improve performance and optimize resource usage."
+    }
+  },
+  "solutionsGrid": {
+    "title": "Our Solutions",
+    "subtitle": "Comprehensive solutions for your infrastructure needs",
+    "learnMore": "Learn more",
+    "viewAll": "View all"
+  },
+  "industry": {
+    "title": "Trusted Across Industries",
+    "financialServices": {
+      "title": "Financial Services",
+      "description": "Secure, scalable solutions for banking, insurance, and fintech."
+    },
+    "healthcare": {
+      "title": "Healthcare",
+      "description": "Compliance-driven platforms for hospitals, clinics, and health tech."
+    },
+    "retail": {
+      "title": "Retail",
+      "description": "Omnichannel experiences for e-commerce and brick-and-mortar."
+    },
+    "manufacturing": {
+      "title": "Manufacturing",
+      "description": "IoT and automation for smart factories and supply chains."
+    },
+    "education": {
+      "title": "Education",
+      "description": "Digital learning platforms for schools, universities, and edtech."
+    }
+  },
+  "techEvolution": {
+    "title": "Infrastructure Excellence: What We Deliver",
+    "subtitle": "Infrastructure agility defines leaders. Unknown delivers the speed and security to realize your digital ambitions.",
+    "cta": "Start Your Journey",
+    "processes": [
+      {
+        "title": "Ideation & Strategy",
+        "description": "Define your vision and strategy with expert guidance and industry insights."
+      },
+      {
+        "title": "Smart Implementation",
+        "description": "Execute with precision using proven frameworks and cutting-edge technology solutions."
+      },
+      {
+        "title": "Scale & Growth",
+        "description": "Build platforms that grow with your business and adapt to changing market demands."
+      },
+      {
+        "title": "Continuous Innovation",
+        "description": "Stay ahead with emerging technologies and innovative solutions that create competitive advantage."
+      }
+    ]
   },
   "services": {
     "title": "Our Services",
     "subtitle": "Comprehensive solutions for your infrastructure needs"
-  },
-  "contact": {
-    "title": "Contact Us",
-    "subtitle": "Get in touch with our team"
   },
   "account": {
     "title": "My Account",

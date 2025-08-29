@@ -1,8 +1,10 @@
 import React from 'react'
+import { useTranslation } from 'react-i18next'
 import { theme } from '../theme'
 import { parseFont } from '../utils/parseFont'
 
 const ContactPage: React.FC = () => {
+  const { t } = useTranslation()
   return (
     <div style={{ maxWidth: '1100px', margin: '0 auto', padding: '4rem 2rem' }}>
       <div style={{ background: theme.colors.surface, borderRadius: '2rem', boxShadow: theme.spacing.cardShadow, padding: '3rem 2rem' }}>
@@ -17,7 +19,7 @@ const ContactPage: React.FC = () => {
           maxWidth: '900px',
           whiteSpace: 'normal',
           overflowWrap: 'break-word'
-        }}>Contact Us</h1>
+  }}>{t('contact.title')}</h1>
         <p style={{
           color: theme.colors.textSecondary,
           ...parseFont(theme.font.subheadline),
@@ -29,7 +31,7 @@ const ContactPage: React.FC = () => {
           textAlign: 'left',
           whiteSpace: 'normal',
           overflowWrap: 'break-word'
-        }}>Get in touch with our team to discuss your project requirements.</p>
+  }}>{t('contact.subtitle')}</p>
 
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '3rem', alignItems: 'start' }}>
           {/* Contact Form */}
@@ -41,10 +43,10 @@ const ContactPage: React.FC = () => {
               fontWeight: 700,
               marginBottom: '1.5rem',
               textAlign: 'left'
-            }}>Send us a Message</h2>
+            }}>{t('contact.form.title')}</h2>
             <form style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
               <div>
-                <label style={{ ...parseFont(theme.font.cardText), color: theme.colors.textSecondary, fontWeight: 500, marginBottom: '0.5rem', display: 'block' }}>Name *</label>
+                <label style={{ ...parseFont(theme.font.cardText), color: theme.colors.textSecondary, fontWeight: 500, marginBottom: '0.5rem', display: 'block' }}>{t('contact.form.name')}</label>
                 <input
                   type="text"
                   style={{
@@ -58,11 +60,11 @@ const ContactPage: React.FC = () => {
                     color: theme.colors.textPrimary,
                     marginBottom: '0.5rem'
                   }}
-                  placeholder="Your full name"
+                  placeholder={t('contact.form.placeholder.name')}
                 />
               </div>
               <div>
-                <label style={{ ...parseFont(theme.font.cardText), color: theme.colors.textSecondary, fontWeight: 500, marginBottom: '0.5rem', display: 'block' }}>Email *</label>
+                <label style={{ ...parseFont(theme.font.cardText), color: theme.colors.textSecondary, fontWeight: 500, marginBottom: '0.5rem', display: 'block' }}>{t('contact.form.email')}</label>
                 <input
                   type="email"
                   style={{
@@ -76,11 +78,11 @@ const ContactPage: React.FC = () => {
                     color: theme.colors.textPrimary,
                     marginBottom: '0.5rem'
                   }}
-                  placeholder="your.email@example.com"
+                  placeholder={t('contact.form.placeholder.email')}
                 />
               </div>
               <div>
-                <label style={{ ...parseFont(theme.font.cardText), color: theme.colors.textSecondary, fontWeight: 500, marginBottom: '0.5rem', display: 'block' }}>Subject</label>
+                <label style={{ ...parseFont(theme.font.cardText), color: theme.colors.textSecondary, fontWeight: 500, marginBottom: '0.5rem', display: 'block' }}>{t('contact.form.subject')}</label>
                 <input
                   type="text"
                   style={{
@@ -94,11 +96,11 @@ const ContactPage: React.FC = () => {
                     color: theme.colors.textPrimary,
                     marginBottom: '0.5rem'
                   }}
-                  placeholder="Project inquiry"
+                  placeholder={t('contact.form.placeholder.subject')}
                 />
               </div>
               <div>
-                <label style={{ ...parseFont(theme.font.cardText), color: theme.colors.textSecondary, fontWeight: 500, marginBottom: '0.5rem', display: 'block' }}>Message *</label>
+                <label style={{ ...parseFont(theme.font.cardText), color: theme.colors.textSecondary, fontWeight: 500, marginBottom: '0.5rem', display: 'block' }}>{t('contact.form.message')}</label>
                 <textarea
                   rows={5}
                   style={{
@@ -113,7 +115,7 @@ const ContactPage: React.FC = () => {
                     marginBottom: '0.5rem',
                     resize: 'vertical'
                   }}
-                  placeholder="Tell us about your project requirements..."
+                  placeholder={t('contact.form.placeholder.message')}
                 />
               </div>
               <button
@@ -135,7 +137,7 @@ const ContactPage: React.FC = () => {
                 onMouseEnter={e => e.currentTarget.style.background = theme.colors.buttonPrimary}
                 onMouseLeave={e => e.currentTarget.style.background = theme.colors.buttonPrimary}
               >
-                Send Message
+                {t('contact.form.send')}
               </button>
             </form>
           </div>
@@ -149,7 +151,7 @@ const ContactPage: React.FC = () => {
               fontWeight: 700,
               marginBottom: '1.5rem',
               textAlign: 'left'
-            }}>Get in Touch</h2>
+            }}>{t('contact.info.title')}</h2>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
               {/* Email */}
               <div style={{ display: 'flex', alignItems: 'center', gap: '1.25rem' }}>
@@ -159,8 +161,8 @@ const ContactPage: React.FC = () => {
                   </svg>
                 </div>
                 <div>
-                  <h3 style={{ ...parseFont(theme.font.cardTitle), color: theme.colors.textPrimary, fontWeight: 600, fontSize: '1.125rem', marginBottom: '0.25rem' }}>Email</h3>
-                  <p style={{ ...parseFont(theme.font.cardText), color: theme.colors.textSecondary }}>contact@platformengine.com</p>
+                  <h3 style={{ ...parseFont(theme.font.cardTitle), color: theme.colors.textPrimary, fontWeight: 600, fontSize: '1.125rem', marginBottom: '0.25rem' }}>{t('contact.info.emailTitle')}</h3>
+                  <p style={{ ...parseFont(theme.font.cardText), color: theme.colors.textSecondary }}>{t('contact.info.email')}</p>
                 </div>
               </div>
               {/* Phone */}
@@ -171,8 +173,8 @@ const ContactPage: React.FC = () => {
                   </svg>
                 </div>
                 <div>
-                  <h3 style={{ ...parseFont(theme.font.cardTitle), color: theme.colors.textPrimary, fontWeight: 600, fontSize: '1.125rem', marginBottom: '0.25rem' }}>Phone</h3>
-                  <p style={{ ...parseFont(theme.font.cardText), color: theme.colors.textSecondary }}>+1 (555) 123-4567</p>
+                  <h3 style={{ ...parseFont(theme.font.cardTitle), color: theme.colors.textPrimary, fontWeight: 600, fontSize: '1.125rem', marginBottom: '0.25rem' }}>{t('contact.info.phoneTitle')}</h3>
+                  <p style={{ ...parseFont(theme.font.cardText), color: theme.colors.textSecondary }}>{t('contact.info.phone')}</p>
                 </div>
               </div>
               {/* Office */}
@@ -184,8 +186,8 @@ const ContactPage: React.FC = () => {
                   </svg>
                 </div>
                 <div>
-                  <h3 style={{ ...parseFont(theme.font.cardTitle), color: theme.colors.textPrimary, fontWeight: 600, fontSize: '1.125rem', marginBottom: '0.25rem' }}>Office</h3>
-                  <p style={{ ...parseFont(theme.font.cardText), color: theme.colors.textSecondary }}>123 Tech Street<br />Digital City, DC 12345</p>
+                  <h3 style={{ ...parseFont(theme.font.cardTitle), color: theme.colors.textPrimary, fontWeight: 600, fontSize: '1.125rem', marginBottom: '0.25rem' }}>{t('contact.info.officeTitle')}</h3>
+                  <p style={{ ...parseFont(theme.font.cardText), color: theme.colors.textSecondary }}>{t('contact.info.office')}</p>
                 </div>
               </div>
               {/* Business Hours */}
@@ -196,8 +198,8 @@ const ContactPage: React.FC = () => {
                   </svg>
                 </div>
                 <div>
-                  <h3 style={{ ...parseFont(theme.font.cardTitle), color: theme.colors.textPrimary, fontWeight: 600, fontSize: '1.125rem', marginBottom: '0.25rem' }}>Business Hours</h3>
-                  <p style={{ ...parseFont(theme.font.cardText), color: theme.colors.textSecondary }}>Mon - Fri: 9:00 AM - 6:00 PM<br />Sat: 10:00 AM - 4:00 PM</p>
+                  <h3 style={{ ...parseFont(theme.font.cardTitle), color: theme.colors.textPrimary, fontWeight: 600, fontSize: '1.125rem', marginBottom: '0.25rem' }}>{t('contact.info.hoursTitle')}</h3>
+                  <p style={{ ...parseFont(theme.font.cardText), color: theme.colors.textSecondary }}>{t('contact.info.hours')}</p>
                 </div>
               </div>
             </div>

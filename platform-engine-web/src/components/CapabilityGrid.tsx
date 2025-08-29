@@ -32,6 +32,7 @@ const CapabilityGrid: React.FC<CapabilityGridProps> = ({
 }) => {
   const { t } = useTranslation();
 
+  // Always use i18n keys for default title/subtitle
   const displayTitle = title || t('home.capabilities.title');
   const displaySubtitle = subtitle || t('home.capabilities.subtitle');
 

@@ -22,29 +22,17 @@
     "getStarted": "Commencer"
   },
   "home": {
+    "headline": "Alimenter l'évolution des entreprises",
+    "subheadline": "Infrastructure de nouvelle génération pour les entreprises modernes",
+    "description": "Dans le paysage concurrentiel d'aujourd'hui, l'agilité de l'infrastructure définit les leaders du marché. Nous fournissions la base technologique dont votre entreprise a besoin pour innover plus rapidement, évoluer plus intelligemment et garder une longueur d'avance.",
     "hero": {
       "title": "Alimenter l'Évolution des Entreprises avec",
       "subtitle": "Infrastructure de Nouvelle Génération",
       "description": "Dans le paysage concurrentiel d'aujourd'hui, l'agilité de l'infrastructure définit les leaders du marché. Unknown fournit la base technologique dont votre entreprise a besoin pour innover plus rapidement, évoluer plus intelligemment et garder une longueur d'avance.",
       "dashboard": "Aller au Tableau de Bord",
       "explore": "Explorer les Services"
-    },
-    "features": {
-      "title": "Pourquoi Unknown ?",
-      "subtitle": "Conçu pour l'Échelle. Conçu pour la Sécurité. Alimenté par l'Automatisation.",
-      "deployment": {
-        "title": "⚡ Déploiement Rapide",
-        "description": "Lancez l'infrastructure en minutes, pas en heures."
-      },
-      "security": {
-        "title": "🔒 Sécurité d'Entreprise",
-        "description": "Architecture axée sur la conformité avec protection des données intégrée."
-      },
-      "automation": {
-        "title": "🤖 Automatisation Intelligente",
-        "description": "Réduisez les erreurs manuelles et rationalisez les flux de travail."
-      }
-    },
+    }
+    ,
     "capabilities": {
       "title": "Excellence en Infrastructure : Ce Que Nous Livrons",
       "subtitle": "Dans le paysage concurrentiel d'aujourd'hui, l'agilité de l'infrastructure définit les leaders du marché. Unknown fournit la base technologique et la profondeur stratégique pour donner vie à vos ambitions numériques avec une vitesse et une sécurité inégalées.",
@@ -80,11 +68,117 @@
         "title": "Implémentation Stratégique",
         "description": "Transformez les investissements technologiques en avantage concurrentiel avec des stratégies d'implémentation éprouvées."
       }
-    },
-    "solutions": {
-      "title": "Nos Solutions",
-      "subtitle": "Solutions technologiques complètes conçues pour accélérer votre parcours de transformation numérique."
     }
+    ,
+    "ctaReady": {
+      "title": "Prêt à faire évoluer votre entreprise ?",
+      "subtitle": "Rejoignez les entreprises leaders qui utilisent Unknown pour des solutions d'infrastructure sécurisées et évolutives.",
+      "authCta": "Aller à Mes Éléments",
+      "anonCta": "Contacter les Ventes"
+    }
+  },
+  "features": {
+    "title": "Pourquoi Unknown ?",
+    "subtitle": "Conçu pour l'Échelle. Conçu pour la Sécurité. Alimenté par l'Automatisation.",
+    "deployment": {
+      "title": "⚡ Déploiement Rapide",
+      "description": "Lancez l'infrastructure en minutes, pas en heures."
+    },
+    "security": {
+      "title": "🔒 Sécurité d'Entreprise",
+      "description": "Architecture axée sur la conformité avec protection des données intégrée."
+    },
+    "automation": {
+      "title": "🤖 Automatisation Intelligente",
+      "description": "Réduisez les erreurs manuelles et rationalisez les flux de travail."
+    },
+    "keyRow": {
+      "devops": {
+        "title": "Intégration DevOps",
+        "description": "Pipelines CI/CD fluides et déploiements automatisés."
+      },
+      "edge": {
+        "title": "Edge Computing",
+        "description": "Traitement des données en temps réel à la périphérie du réseau."
+      },
+      "security": {
+        "title": "Sécurité & Conformité",
+        "description": "Protection de bout en bout et conformité réglementaire."
+      },
+      "multiCloud": {
+        "title": "Flexibilité Multi-Cloud",
+        "description": "Déployez sur AWS, Azure, GCP et plus encore."
+      }
+    }
+  },
+  
+  "solutions": {
+    "title": "Nos Solutions",
+    "subtitle": "Solutions technologiques complètes conçues pour accélérer votre parcours de transformation numérique.",
+    "cloudMigration": {
+      "title": "Migration vers le Cloud",
+      "description": "Construisez des solutions avec une vitesse et une sécurité améliorées en alignant les alliances technologiques et les écosystèmes."
+    },
+    "securityCompliance": {
+      "title": "Sécurité et Conformité",
+      "description": "Mettez en œuvre des pratiques de sécurité conformes aux exigences réglementaires et à la responsabilité."
+    },
+    "performanceOptimization": {
+      "title": "Performance et Optimisation",
+      "description": "Utilisez des techniques avancées pour améliorer les performances et optimiser l'utilisation des ressources."
+    }
+  },
+  "solutionsGrid": {
+    "title": "Nos Solutions",
+    "subtitle": "Solutions complètes pour vos besoins d'infrastructure",
+    "learnMore": "En savoir plus",
+    "viewAll": "Voir tout"
+  },
+  "industry": {
+    "title": "Approuvé par les Industries",
+    "financialServices": {
+      "title": "Services Financiers",
+      "description": "Solutions sécurisées et évolutives pour la banque, l'assurance et la fintech."
+    },
+    "healthcare": {
+      "title": "Santé",
+      "description": "Plateformes axées sur la conformité pour les hôpitaux, cliniques et technologies de la santé."
+    },
+    "retail": {
+      "title": "Commerce de Détail",
+      "description": "Expériences omnicanales pour le commerce électronique et le commerce traditionnel."
+    },
+    "manufacturing": {
+      "title": "Fabrication",
+      "description": "IoT et automatisation pour des usines intelligentes et des chaînes d'approvisionnement."
+    },
+    "education": {
+      "title": "Éducation",
+      "description": "Plateformes d'apprentissage numérique pour écoles, universités et edtech."
+    }
+  },
+  "techEvolution": {
+    "title": "Excellence en Infrastructure : Ce Que Nous Livrons",
+    "subtitle": "L'agilité de l'infrastructure définit les leaders. Unknown fournit la vitesse et la sécurité pour réaliser vos ambitions numériques.",
+    "cta": "Commencez votre parcours",
+    "processes": [
+      {
+        "title": "Idéation et Stratégie",
+        "description": "Définissez votre vision et votre stratégie avec des conseils d'experts et des insights sectoriels."
+      },
+      {
+        "title": "Mise en œuvre intelligente",
+        "description": "Exécutez avec précision en utilisant des cadres éprouvés et des solutions technologiques de pointe."
+      },
+      {
+        "title": "Scale & Croissance",
+        "description": "Construisez des plates-formes qui grandissent avec votre entreprise et s'adaptent aux demandes changeantes du marché."
+      },
+      {
+        "title": "Innovation Continue",
+        "description": "Restez en avance avec des technologies émergentes et des solutions innovantes qui créent un avantage concurrentiel."
+      }
+    ]
   },
   "services": {
     "title": "Nos Services",
@@ -92,7 +186,32 @@
   },
   "contact": {
     "title": "Nous Contacter",
-    "subtitle": "Contactez notre équipe"
+    "subtitle": "Contactez notre équipe ou soumettez vos questions ici.",
+    "form": {
+      "title": "Formulaire de Contact",
+      "name": "Nom",
+      "email": "Adresse Email",
+      "subject": "Sujet",
+      "message": "Message",
+      "placeholder": {
+        "name": "Votre nom complet",
+        "email": "votre.email@exemple.com",
+        "subject": "Demande de projet",
+        "message": "Parlez-nous des exigences de votre projet..."
+      },
+      "send": "Envoyer"
+    },
+    "info": {
+      "title": "Informations de Contact",
+      "emailTitle": "Email",
+      "email": "info@example.com",
+      "phoneTitle": "Téléphone",
+      "phone": "+33 1 23 45 67 89",
+      "officeTitle": "Adresse du Bureau",
+      "office": "Paris, France",
+      "hoursTitle": "Heures d'ouverture",
+      "hours": "Lundi-Vendredi : 9h à 18h"
+    }
   },
   "account": {
     "title": "Mon Compte",

@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import useKeycloak from '../hooks/useKeycloak'
 
 const NavBar: React.FC = () => {
   const [isServicesOpen, setIsServicesOpen] = useState(false)
+  const { t } = useTranslation()
   const { authenticated, login, logout, register } = useKeycloak()
   const location = useLocation()
   const navigate = useNavigate()
@@ -78,7 +80,7 @@ const NavBar: React.FC = () => {
               e.currentTarget.style.color = '#d1d5db'
             }
           }}>
-            Home
+            {t('navigation.home')}
           </Link>
 
           {/* Services Dropdown */}
@@ -229,7 +231,7 @@ const NavBar: React.FC = () => {
               e.currentTarget.style.color = '#d1d5db'
             }
           }}>
-            Contact
+            {t('navigation.contact')}
           </Link>
 
           {authenticated && (

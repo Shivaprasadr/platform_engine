@@ -2,6 +2,7 @@ import React from "react";
 import { theme } from "../theme";
 import { parseFont } from "../utils/parseFont";
 import { FaUniversity, FaHeartbeat, FaShoppingCart, FaIndustry, FaGraduationCap } from "react-icons/fa";
+import { useTranslation } from 'react-i18next'
 
 interface Industry {
   name: string;
@@ -11,33 +12,34 @@ interface Industry {
 
 const industries: Industry[] = [
   {
-    name: "Financial Services",
-    description: "Secure, scalable solutions for banking, insurance, and fintech.",
+    name: 'industry.financialServices.title',
+    description: 'industry.financialServices.description',
     icon: <FaUniversity />,
   },
   {
-    name: "Healthcare",
-    description: "Compliance-driven platforms for hospitals, clinics, and health tech.",
+    name: 'industry.healthcare.title',
+    description: 'industry.healthcare.description',
     icon: <FaHeartbeat />,
   },
   {
-    name: "Retail",
-    description: "Omnichannel experiences for e-commerce and brick-and-mortar.",
+    name: 'industry.retail.title',
+    description: 'industry.retail.description',
     icon: <FaShoppingCart />,
   },
   {
-    name: "Manufacturing",
-    description: "IoT and automation for smart factories and supply chains.",
+    name: 'industry.manufacturing.title',
+    description: 'industry.manufacturing.description',
     icon: <FaIndustry />,
   },
   {
-    name: "Education",
-    description: "Digital learning platforms for schools, universities, and edtech.",
+    name: 'industry.education.title',
+    description: 'industry.education.description',
     icon: <FaGraduationCap />,
   },
 ];
 
 export default function IndustryTrustGrid() {
+  const { t } = useTranslation()
   return (
     <div
       style={{
@@ -49,10 +51,10 @@ export default function IndustryTrustGrid() {
       }}
     >
       <h2 style={{ ...parseFont(theme.font.headline), color: theme.colors.textPrimary }}>
-        Trusted Across Industries
+        {t('industry.title')}
       </h2>
       <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: '2rem' }}>
-        {industries.map((industry) => (
+  {industries.map((industry) => (
           <div
             key={industry.name}
             style={{
@@ -67,8 +69,8 @@ export default function IndustryTrustGrid() {
             }}
           >
             <div style={{ fontSize: "2rem", color: theme.colors.accent }}>{industry.icon}</div>
-            <h3 style={{ ...parseFont(theme.font.cardTitle), color: theme.colors.textPrimary }}>{industry.name}</h3>
-            <p style={{ ...parseFont(theme.font.cardText), color: theme.colors.textSecondary }}>{industry.description}</p>
+            <h3 style={{ ...parseFont(theme.font.cardTitle), color: theme.colors.textPrimary }}>{t(industry.name)}</h3>
+            <p style={{ ...parseFont(theme.font.cardText), color: theme.colors.textSecondary }}>{t(industry.description)}</p>
           </div>
         ))}
       </div>

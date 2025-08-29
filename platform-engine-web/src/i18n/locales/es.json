@@ -22,29 +22,17 @@
     "getStarted": "Comenzar"
   },
   "home": {
+    "headline": "Impulsando la evolución empresarial",
+    "subheadline": "Infraestructura de nueva generación para empresas modernas",
+    "description": "En el panorama competitivo actual, la agilidad de infraestructura define a los líderes del mercado. Proporcionamos la base tecnológica que su negocio necesita para innovar más rápido, escalar de manera más inteligente y mantenerse a la vanguardia.",
     "hero": {
       "title": "Impulsando la Evolución Empresarial con",
       "subtitle": "Infraestructura de Nueva Generación",
       "description": "En el panorama competitivo actual, la agilidad de infraestructura define a los líderes del mercado. Unknown proporciona la base tecnológica que su negocio necesita para innovar más rápido, escalar de manera más inteligente y mantenerse a la vanguardia.",
       "dashboard": "Ir al Panel",
       "explore": "Explorar Servicios"
-    },
-    "features": {
-      "title": "¿Por qué Unknown?",
-      "subtitle": "Construido para Escalar. Diseñado para Seguridad. Impulsado por Automatización.",
-      "deployment": {
-        "title": "⚡ Despliegue Rápido",
-        "description": "Lance infraestructura en minutos, no horas."
-      },
-      "security": {
-        "title": "🔒 Seguridad Empresarial",
-        "description": "Arquitectura que prioriza el cumplimiento con protección de datos integrada."
-      },
-      "automation": {
-        "title": "🤖 Automatización Inteligente",
-        "description": "Reduzca errores manuales y optimice flujos de trabajo."
-      }
-    },
+    }
+    ,
     "capabilities": {
       "title": "Excelencia en Infraestructura: Lo Que Entregamos",
       "subtitle": "En el panorama competitivo actual, la agilidad de infraestructura define a los líderes del mercado. Unknown proporciona la base tecnológica y la profundidad estratégica para dar vida a sus ambiciones digitales con velocidad y seguridad inigualables.",
@@ -66,7 +54,7 @@
       },
       "technologyLeadership": {
         "title": "Liderazgo Tecnológico",
-        "description": "Desbloquee el valor de la industria asociándose con organizaciones líderes y equipando a líderes ambiciosos."
+        "description": "Desbloquee la valor de la industria asociándose con organizaciones líderes y equipando a líderes ambiciosos."
       },
       "technologyExpertise": {
         "title": "Experiencia Tecnológica",
@@ -80,11 +68,117 @@
         "title": "Implementación Estratégica",
         "description": "Transforme las inversiones tecnológicas en ventaja competitiva con estrategias de implementación probadas."
       }
-    },
-    "solutions": {
-      "title": "Nuestras Soluciones",
-      "subtitle": "Soluciones tecnológicas integrales diseñadas para acelerar su viaje de transformación digital."
     }
+    ,
+    "ctaReady": {
+      "title": "¿Listo para escalar su negocio?",
+      "subtitle": "Únase a las empresas líderes que usan Unknown para soluciones de infraestructura seguras y escalables.",
+      "authCta": "Ir a Mis Elementos",
+      "anonCta": "Contactar Ventas"
+    }
+  },
+  "features": {
+    "title": "¿Por qué Unknown?",
+    "subtitle": "Construido para Escalar. Diseñado para Seguridad. Impulsado por Automatización.",
+    "deployment": {
+      "title": "⚡ Despliegue Rápido",
+      "description": "Lance infraestructura en minutos, no horas."
+    },
+    "security": {
+      "title": "🔒 Seguridad Empresarial",
+      "description": "Arquitectura que prioriza el cumplimiento con protección de datos integrada."
+    },
+    "automation": {
+      "title": "🤖 Automatización Inteligente",
+      "description": "Reduzca errores manuales y optimice flujos de trabajo."
+    },
+    "keyRow": {
+      "devops": {
+        "title": "Integración DevOps",
+        "description": "Pipelines CI/CD sin fricción y despliegues automatizados."
+      },
+      "edge": {
+        "title": "Computación en el Borde",
+        "description": "Procesamiento de datos en tiempo real en el borde de la red."
+      },
+      "security": {
+        "title": "Seguridad y Cumplimiento",
+        "description": "Protección integral y cumplimiento normativo."
+      },
+      "multiCloud": {
+        "title": "Flexibilidad Multi-Nube",
+        "description": "Implemente en AWS, Azure, GCP y más."
+      }
+    }
+  },
+  
+  "solutions": {
+    "title": "Nuestras Soluciones",
+    "subtitle": "Soluciones tecnológicas integrales diseñadas para acelerar su viaje de transformación digital.",
+    "cloudMigration": {
+      "title": "Migración a la Nube",
+      "description": "Construya soluciones con velocidad y seguridad mejoradas alineando alianzas tecnológicas y ecosistemas."
+    },
+    "securityCompliance": {
+      "title": "Seguridad y Cumplimiento",
+      "description": "Implemente prácticas de seguridad que cumplan con los requisitos regulatorios y la responsabilidad."
+    },
+    "performanceOptimization": {
+      "title": "Rendimiento y Optimización",
+      "description": "Utilice técnicas avanzadas para mejorar el rendimiento y optimizar el uso de recursos."
+    }
+  },
+  "solutionsGrid": {
+    "title": "Nuestras Soluciones",
+    "subtitle": "Soluciones integrales para sus necesidades de infraestructura",
+    "learnMore": "Más información",
+    "viewAll": "Ver todo"
+  },
+  "industry": {
+    "title": "Confiado en Todas las Industrias",
+    "financialServices": {
+      "title": "Servicios Financieros",
+      "description": "Soluciones seguras y escalables para banca, seguros y fintech."
+    },
+    "healthcare": {
+      "title": "Salud",
+      "description": "Plataformas impulsadas por el cumplimiento para hospitales, clínicas y tecnología de la salud."
+    },
+    "retail": {
+      "title": "Comercio Minorista",
+      "description": "Experiencias omnicanal para comercio electrónico y tiendas físicas."
+    },
+    "manufacturing": {
+      "title": "Fabricación",
+      "description": "IoT y automatización para fábricas inteligentes y cadenas de suministro."
+    },
+    "education": {
+      "title": "Educación",
+      "description": "Plataformas de aprendizaje digital para escuelas, universidades y edtech."
+    }
+  },
+  "techEvolution": {
+    "title": "Excelencia en Infraestructura: Lo Que Entregamos",
+    "subtitle": "La agilidad de la infraestructura define a los líderes. Unknown proporciona la velocidad y la seguridad para realizar sus ambiciones digitales.",
+    "cta": "Comienza tu viaje",
+    "processes": [
+      {
+        "title": "Ideación y Estrategia",
+        "description": "Defina su visión y estrategia con orientación experta y conocimientos de la industria."
+      },
+      {
+        "title": "Implementación Inteligente",
+        "description": "Ejecute con precisión utilizando marcos probados y soluciones tecnológicas de vanguardia."
+      },
+      {
+        "title": "Escala y Crecimiento",
+        "description": "Construya plataformas que crezcan con su negocio y se adapten a las demandas cambiantes del mercado."
+      },
+      {
+        "title": "Innovación Continua",
+        "description": "Manténgase a la vanguardia con tecnologías emergentes y soluciones innovadoras que crean ventaja competitiva."
+      }
+    ]
   },
   "services": {
     "title": "Nuestros Servicios",
@@ -92,7 +186,32 @@
   },
   "contact": {
     "title": "Contáctanos",
-    "subtitle": "Póngase en contacto con nuestro equipo"
+    "subtitle": "Comunícate con nuestro equipo o envía tus preguntas aquí.",
+    "form": {
+      "title": "Formulario de Contacto",
+      "name": "Nombre",
+      "email": "Correo Electrónico",
+      "subject": "Asunto",
+      "message": "Mensaje",
+      "placeholder": {
+        "name": "Tu nombre completo",
+        "email": "tu.email@ejemplo.com",
+        "subject": "Consulta de proyecto",
+        "message": "Cuéntanos sobre los requisitos de tu proyecto..."
+      },
+      "send": "Enviar"
+    },
+    "info": {
+      "title": "Información de Contacto",
+      "emailTitle": "Correo Electrónico",
+      "email": "info@example.com",
+      "phoneTitle": "Teléfono",
+      "phone": "+34 123 456 789",
+      "officeTitle": "Dirección de la Oficina",
+      "office": "Madrid, España",
+      "hoursTitle": "Horario de Atención",
+      "hours": "Lunes a Viernes: 9am a 6pm"
+    }
   },
   "account": {
     "title": "Mi Cuenta",

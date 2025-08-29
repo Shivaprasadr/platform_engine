@@ -3,6 +3,7 @@ import { parseFont } from '../utils/parseFont'
 import React from 'react'
 import { theme } from '../theme'
 import { FaLightbulb, FaCogs, FaRocket, FaSync } from 'react-icons/fa'
+import { useTranslation } from 'react-i18next'
 
 interface ProcessData {
   step: number
@@ -19,8 +20,8 @@ const processes: ProcessData[] = [
     step: 1,
     icon: <FaLightbulb />,
     image: '/images/ideation.svg',
-    title: 'Ideation & Strategy',
-    description: 'Define your vision and strategy with expert guidance and industry insights.',
+    title: 'techEvolution.processes.0.title',
+    description: 'techEvolution.processes.0.description',
     gradientFrom: 'from-yellow-400',
     gradientTo: 'to-orange-500'
   },
@@ -28,8 +29,8 @@ const processes: ProcessData[] = [
     step: 2,
     icon: <FaCogs />,
     image: '/images/smart-implementation.svg',
-    title: 'Smart Implementation',
-    description: 'Execute with precision using proven frameworks and cutting-edge technology solutions.',
+    title: 'techEvolution.processes.1.title',
+    description: 'techEvolution.processes.1.description',
     gradientFrom: 'from-blue-500',
     gradientTo: 'to-indigo-600'
   },
@@ -37,8 +38,8 @@ const processes: ProcessData[] = [
     step: 3,
     icon: <FaRocket />,
     image: '/images/scale-growth.svg',
-    title: 'Scale & Growth',
-    description: 'Build platforms that grow with your business and adapt to changing market demands.',
+    title: 'techEvolution.processes.2.title',
+    description: 'techEvolution.processes.2.description',
     gradientFrom: 'from-green-500',
     gradientTo: 'to-teal-600'
   },
@@ -46,8 +47,8 @@ const processes: ProcessData[] = [
     step: 4,
     icon: <FaSync />,
     image: '/images/continuous-innovation.svg',
-    title: 'Continuous Innovation',
-    description: 'Stay ahead with emerging technologies and innovative solutions that create competitive advantage.',
+    title: 'techEvolution.processes.3.title',
+    description: 'techEvolution.processes.3.description',
     gradientFrom: 'from-purple-500',
     gradientTo: 'to-pink-600'
   }
@@ -55,8 +56,9 @@ const processes: ProcessData[] = [
   
 
 const TechEvolutionGrid: React.FC = () => {
-  const title = 'Infrastructure Excellence: What We Deliver'
-  const subtitle = "Infrastructure agility defines leaders. Unknown delivers the speed and security to realize your digital ambitions."
+  const { t } = useTranslation()
+  const title = t('techEvolution.title')
+  const subtitle = t('techEvolution.subtitle')
 
   return (
     <section className="py-16" style={{ backgroundColor: theme.colors.background, position: 'relative' }}>
@@ -191,7 +193,7 @@ const TechEvolutionGrid: React.FC = () => {
                       marginBottom: '1rem'
                     }}
                   >
-                    {process.title}
+                    {t(process.title)}
                   </h3>
                   <p 
                     style={{ 
@@ -199,7 +201,7 @@ const TechEvolutionGrid: React.FC = () => {
                       lineHeight: '1.6'
                     }}
                   >
-                    {process.description}
+                    {t(process.description)}
                   </p>
                 </div>
               </div>
@@ -257,7 +259,7 @@ const TechEvolutionGrid: React.FC = () => {
                 e.currentTarget.style.boxShadow = theme.spacing.cardShadow
               }}
             >
-              Start Your Journey
+              {t('techEvolution.cta')}
             </button>
           </div>
         </div>

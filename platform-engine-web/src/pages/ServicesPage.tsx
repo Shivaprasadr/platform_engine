@@ -1,8 +1,10 @@
 import React, { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 
 const ServicesPage: React.FC = () => {
   const location = useLocation()
+  const { t } = useTranslation()
 
   useEffect(() => {
     // Handle hash navigation from external sources
@@ -29,9 +31,8 @@ const ServicesPage: React.FC = () => {
               marginBottom: '1rem',
               lineHeight: 1.08,
               textAlign: 'left',
-              fontFamily: 'inherit'
             }}
-          >Our Services</h1>
+          >{t('services.title')}</h1>
           <p
             style={{
               color: '#555',
@@ -44,7 +45,7 @@ const ServicesPage: React.FC = () => {
               fontFamily: 'inherit'
             }}
           >
-            We provide comprehensive technology solutions to help your business scale and innovate. Explore our specialized services below.
+            {t('services.subtitle')}
           </p>
           <div className="space-y-16">
             {/* Cloud Technologies Section */}
@@ -58,6 +59,7 @@ const ServicesPage: React.FC = () => {
                   </div>
                   <div className="flex-1">
                     <h2 style={{ color: '#222', fontSize: '2rem', fontWeight: 800, marginBottom: '1rem', textAlign: 'left', fontFamily: 'inherit' }}>Cloud Technologies</h2>
+              return (
                     <p style={{ color: '#444', fontSize: '1.1rem', marginBottom: '1.5rem', textAlign: 'left', fontFamily: 'inherit' }}>
                       Transform your infrastructure with scalable cloud solutions. We specialize in AWS, Azure, and Google Cloud Platform to deliver reliable, cost-effective, and secure cloud environments.
                     </p>

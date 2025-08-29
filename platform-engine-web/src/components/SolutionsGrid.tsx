@@ -2,6 +2,7 @@ import { parseFont } from '../utils/parseFont'
 import React from 'react'
 import { theme } from '../theme'
 import { FaCloud, FaShieldAlt, FaTachometerAlt, FaArrowRight } from 'react-icons/fa'
+import { useTranslation } from 'react-i18next'
 
 interface SolutionData {
   icon: React.ReactNode
@@ -14,23 +15,18 @@ interface SolutionData {
 }
 
 interface SolutionsGridProps {
-  title?: string
-  subtitle?: string
   className?: string
 }
 
-const SolutionsGrid: React.FC<SolutionsGridProps> = ({
-  title = "Tailored Technology for Every Business Need",
-  subtitle = "Our solutions are designed to meet the unique needs of every business, ensuring flexibility, security, and performance.",
-  className = ""
-}) => {
-  
+const SolutionsGrid: React.FC<SolutionsGridProps> = ({ className = "" }) => {
+  const { t } = useTranslation()
+
   const solutions: SolutionData[] = [
     {
       icon: <FaCloud />,
       image: "/images/solutiongrid-cloudmigration.jpg",
-      title: "Cloud Migration",
-      description: "Seamless transitions with zero downtime.",
+      title: t('solutions.cloudMigration.title'),
+      description: t('solutions.cloudMigration.description'),
       gradientFrom: "from-blue-500",
       gradientTo: "to-cyan-500",
       linkColor: "text-blue-600"
@@ -38,8 +34,8 @@ const SolutionsGrid: React.FC<SolutionsGridProps> = ({
     {
       icon: <FaShieldAlt />,
       image: "/images/solutiongrid-security-and-compliance.jpg", 
-      title: "Security & Compliance",
-      description: "Stay ahead of regulations and threats.",
+      title: t('solutions.securityCompliance.title'),
+      description: t('solutions.securityCompliance.description'),
       gradientFrom: "from-green-500",
       gradientTo: "to-emerald-500",
       linkColor: "text-green-600"
@@ -47,16 +43,16 @@ const SolutionsGrid: React.FC<SolutionsGridProps> = ({
     {
       icon: <FaTachometerAlt />,
       image: "/images/solutiongrid-performance-and-optimization.jpg",
-      title: "Performance Optimization", 
-      description: "Maximize speed and efficiency across systems.",
+      title: t('solutions.performanceOptimization.title'), 
+      description: t('solutions.performanceOptimization.description'),
       gradientFrom: "from-purple-500",
       gradientTo: "to-pink-500",
       linkColor: "text-purple-600"
     }
   ]
-  
+
   return (
-  <section className={`py-16 ${className}`} style={{ backgroundColor: theme.colors.surface }}>
+    <section className={`py-16 ${className}`} style={{ backgroundColor: theme.colors.surface }}>
       <div className="container mx-auto px-6">
         <div className="mb-12" style={{ textAlign: 'left', maxWidth: '900px', marginLeft: 0 }}>
           <h2
@@ -72,7 +68,7 @@ const SolutionsGrid: React.FC<SolutionsGridProps> = ({
               overflowWrap: 'break-word'
             }}
           >
-            {title}
+            {t('solutionsGrid.title')}
           </h2>
           <p
             style={{
@@ -88,10 +84,9 @@ const SolutionsGrid: React.FC<SolutionsGridProps> = ({
               overflowWrap: 'break-word'
             }}
           >
-            {subtitle}
+            {t('solutionsGrid.subtitle')}
           </p>
         </div>
-
         <div className="max-w-7xl mx-auto">
           <div 
             style={{ 
@@ -142,11 +137,10 @@ const SolutionsGrid: React.FC<SolutionsGridProps> = ({
                   }}
                   className={`bg-gradient-to-br ${solution.gradientFrom} ${solution.gradientTo}`}
                 >
-                  {/* Main Banner Image Area - Taller and Proportionate */}
                   <div
                     style={{
                       width: '100%',
-                      height: '220px', // Increased height for better aspect ratio
+                      height: '220px',
                       borderTopLeftRadius: '1.5rem',
                       borderTopRightRadius: '1.5rem',
                       overflow: 'hidden',
@@ -171,8 +165,6 @@ const SolutionsGrid: React.FC<SolutionsGridProps> = ({
                       }}
                     />
                   </div>
-                  {/* Icon removed as requested */}
-                  
                   {/* Enhanced Background Graphics */}
                   <div
                     style={{
@@ -210,9 +202,8 @@ const SolutionsGrid: React.FC<SolutionsGridProps> = ({
                       opacity: 0.4
                     }}
                   />
-                  
                   {/* Solution-specific Graphics */}
-                  {index === 0 && ( // Cloud Migration
+                  {index === 0 && (
                     <>
                       <div style={{
                         position: 'absolute',
@@ -236,8 +227,7 @@ const SolutionsGrid: React.FC<SolutionsGridProps> = ({
                       }} />
                     </>
                   )}
-                  
-                  {index === 1 && ( // Security
+                  {index === 1 && (
                     <>
                       <div style={{
                         position: 'absolute',
@@ -261,8 +251,7 @@ const SolutionsGrid: React.FC<SolutionsGridProps> = ({
                       }} />
                     </>
                   )}
-                  
-                  {index === 2 && ( // Performance
+                  {index === 2 && (
                     <>
                       <div style={{
                         position: 'absolute',
@@ -287,7 +276,6 @@ const SolutionsGrid: React.FC<SolutionsGridProps> = ({
                     </>
                   )}
                 </div>
-
                 {/* Content Area */}
                 <div style={{ padding: '2rem' }}>
                   <h3 
@@ -308,7 +296,6 @@ const SolutionsGrid: React.FC<SolutionsGridProps> = ({
                   >
                     {solution.description}
                   </p>
-                  
                   {/* Learn More Button */}
                   <button
                     style={{
@@ -331,14 +318,13 @@ const SolutionsGrid: React.FC<SolutionsGridProps> = ({
                       e.currentTarget.style.transform = 'translateX(0px)'
                     }}
                   >
-                    Learn More
+                    {t('solutionsGrid.learnMore')}
                     <FaArrowRight style={{ fontSize: '0.75rem' }} />
                   </button>
                 </div>
               </div>
             ))}
           </div>
-
           {/* View All Solutions Button */}
           <div className="text-center">
             <button
@@ -363,7 +349,7 @@ const SolutionsGrid: React.FC<SolutionsGridProps> = ({
                 e.currentTarget.style.boxShadow = '0 4px 6px -1px rgba(0, 0, 0, 0.1)'
               }}
             >
-              View All Solutions
+              {t('solutionsGrid.viewAll')}
             </button>
           </div>
         </div>

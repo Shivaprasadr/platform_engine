@@ -1,4 +1,5 @@
 import React from 'react'
+import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 import useKeycloak from '../hooks/useKeycloak'
 import { Loading } from '../components/ui'
@@ -19,6 +20,7 @@ const HomePage: React.FC = () => {
     return <Loading message="Initializing Unknown..." />
   }
 
+  const { t } = useTranslation()
   return (
   <div className="min-h-screen" style={{ backgroundColor: '#F3F3F3' }}>
       {/* Ultra-Modern Hero Section - Edge Light Theme */}
@@ -94,7 +96,7 @@ const HomePage: React.FC = () => {
                 animation: 'gradientShift 8s ease-in-out infinite'
               }}
             >
-              Powering Business Evolution
+              {t('home.headline')}
             </h1>
             <div
               style={{
@@ -111,12 +113,8 @@ const HomePage: React.FC = () => {
                 textShadow: '0 4px 20px rgba(0, 0, 0, 0.25)'
               }}
             >
-              Next-Generation Infrastructure
+              {t('home.subheadline')}
             </div>
-          </div>
-
-          {/* Enhanced Subtitle - Edge Theme */}
-          <div style={{ marginBottom: '3rem' }}>
             <p
               style={{
                 fontSize: 'clamp(1.25rem, 3vw, 1.75rem)',
@@ -129,27 +127,7 @@ const HomePage: React.FC = () => {
                 textShadow: '0 2px 8px rgba(0, 0, 0, 0.1)'
               }}
             >
-              Infrastructure agility defines market leaders. Unknown delivers the technology 
-              foundation to <strong style={{ 
-                color: '#000000', 
-                background: 'linear-gradient(135deg, rgba(240, 240, 240, 0.6), rgba(243, 243, 243, 0.4))',
-                padding: '0.125rem 0.375rem',
-                borderRadius: '0.25rem',
-                boxShadow: '0 1px 3px rgba(0, 0, 0, 0.1)'
-              }}>innovate faster</strong>, <strong style={{ 
-                color: '#1A1A1A', 
-                background: 'linear-gradient(135deg, rgba(240, 240, 240, 0.6), rgba(243, 243, 243, 0.4))',
-                padding: '0.125rem 0.375rem',
-                borderRadius: '0.25rem',
-                boxShadow: '0 1px 3px rgba(0, 0, 0, 0.1)'
-              }}>scale smarter</strong>, 
-              and <strong style={{ 
-                color: '#000000', 
-                background: 'linear-gradient(135deg, rgba(240, 240, 240, 0.6), rgba(243, 243, 243, 0.4))',
-                padding: '0.125rem 0.375rem',
-                borderRadius: '0.25rem',
-                boxShadow: '0 1px 3px rgba(0, 0, 0, 0.1)'
-              }}>stay ahead</strong>.
+              {t('home.description')}
             </p>
             
             {/* Enhanced Key Features Row */}
@@ -168,29 +146,29 @@ const HomePage: React.FC = () => {
                 display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '1rem', background: 'linear-gradient(135deg, #F3F3F3, #E8E8E8)', borderRadius: '1rem', border: '1px solid #D1D1D1', boxShadow: '0 4px 12px rgba(0,0,0,0.08)', minWidth: '140px'
               }}>
                 <FaCogs style={{ fontSize: '2rem', color: '#1A1A1A', marginBottom: '0.5rem' }} />
-                <div style={{ fontSize: '0.875rem', fontWeight: '600', color: '#1A1A1A', textAlign: 'center', marginBottom: '0.25rem' }}>AI-Powered DevOps</div>
-                <div style={{ fontSize: '0.75rem', color: '#4A4A4A', textAlign: 'center' }}>Intelligent automation</div>
+                <div style={{ fontSize: '0.875rem', fontWeight: '600', color: '#1A1A1A', textAlign: 'center', marginBottom: '0.25rem' }}>{t('features.keyRow.devops.title')}</div>
+                <div style={{ fontSize: '0.75rem', color: '#4A4A4A', textAlign: 'center' }}>{t('features.keyRow.devops.description')}</div>
               </div>
               <div style={{
                 display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '1rem', background: 'linear-gradient(135deg, #F3F3F3, #E8E8E8)', borderRadius: '1rem', border: '1px solid #D1D1D1', boxShadow: '0 4px 12px rgba(0,0,0,0.08)', minWidth: '140px'
               }}>
                 <FaRocket style={{ fontSize: '2rem', color: '#1A1A1A', marginBottom: '0.5rem' }} />
-                <div style={{ fontSize: '0.875rem', fontWeight: '600', color: '#1A1A1A', textAlign: 'center', marginBottom: '0.25rem' }}>Edge Computing</div>
-                <div style={{ fontSize: '0.75rem', color: '#4A4A4A', textAlign: 'center' }}>Ultra-low latency</div>
+                <div style={{ fontSize: '0.875rem', fontWeight: '600', color: '#1A1A1A', textAlign: 'center', marginBottom: '0.25rem' }}>{t('features.keyRow.edge.title')}</div>
+                <div style={{ fontSize: '0.75rem', color: '#4A4A4A', textAlign: 'center' }}>{t('features.keyRow.edge.description')}</div>
               </div>
               <div style={{
                 display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '1rem', background: 'linear-gradient(135deg, #F3F3F3, #E8E8E8)', borderRadius: '1rem', border: '1px solid #D1D1D1', boxShadow: '0 4px 12px rgba(0,0,0,0.08)', minWidth: '140px'
               }}>
                 <FaShieldAlt style={{ fontSize: '2rem', color: '#1A1A1A', marginBottom: '0.5rem' }} />
-                <div style={{ fontSize: '0.875rem', fontWeight: '600', color: '#1A1A1A', textAlign: 'center', marginBottom: '0.25rem' }}>Zero-Trust Security</div>
-                <div style={{ fontSize: '0.75rem', color: '#4A4A4A', textAlign: 'center' }}>Enterprise-grade protection</div>
+                <div style={{ fontSize: '0.875rem', fontWeight: '600', color: '#1A1A1A', textAlign: 'center', marginBottom: '0.25rem' }}>{t('features.keyRow.security.title')}</div>
+                <div style={{ fontSize: '0.75rem', color: '#4A4A4A', textAlign: 'center' }}>{t('features.keyRow.security.description')}</div>
               </div>
               <div style={{
                 display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '1rem', background: 'linear-gradient(135deg, #F3F3F3, #E8E8E8)', borderRadius: '1rem', border: '1px solid #D1D1D1', boxShadow: '0 4px 12px rgba(0,0,0,0.08)', minWidth: '140px'
               }}>
                 <SiKubernetes style={{ fontSize: '2rem', color: '#1A1A1A', marginBottom: '0.5rem' }} />
-                <div style={{ fontSize: '0.875rem', fontWeight: '600', color: '#1A1A1A', textAlign: 'center', marginBottom: '0.25rem' }}>Multi-Cloud Native</div>
-                <div style={{ fontSize: '0.75rem', color: '#4A4A4A', textAlign: 'center' }}>Vendor-agnostic flexibility</div>
+                <div style={{ fontSize: '0.875rem', fontWeight: '600', color: '#1A1A1A', textAlign: 'center', marginBottom: '0.25rem' }}>{t('features.keyRow.multiCloud.title')}</div>
+                <div style={{ fontSize: '0.75rem', color: '#4A4A4A', textAlign: 'center' }}>{t('features.keyRow.multiCloud.description')}</div>
               </div>
             </div>
           </div>
@@ -305,7 +283,7 @@ const HomePage: React.FC = () => {
                 textShadow: '0 4px 20px rgba(0, 0, 0, 0.2)'
               }}
             >
-              Why Unknown?
+              {t('features.title')}
             </div>
             <div
               style={{
@@ -318,7 +296,7 @@ const HomePage: React.FC = () => {
                 textShadow: '0 1px 3px rgba(0, 0, 0, 0.1)'
               }}
             >
-              Built for Scale. Designed for Security. Powered by Automation.
+              {t('features.subtitle')}
             </div>
           </div>
           
@@ -408,14 +386,10 @@ const HomePage: React.FC = () => {
                   color: '#1A1A1A',
                   marginBottom: '1.5rem',
                   textAlign: 'center',
-                  letterSpacing: '-0.01em',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  gap: '0.5rem'
+                  letterSpacing: '-0.01em'
                 }}
               >
-                <FaRocket style={{ fontSize: '1.5rem', color: '#1A1A1A' }} /> Rapid Deployment
+                {t('features.deployment.title')}
               </h3>
               <p
                 style={{
@@ -426,7 +400,7 @@ const HomePage: React.FC = () => {
                   fontWeight: '400'
                 }}
               >
-                Launch infrastructure in minutes, not hours. Experience the speed of modern cloud-native solutions.
+                {t('features.deployment.description')}
               </p>
             </div>
 
@@ -507,14 +481,10 @@ const HomePage: React.FC = () => {
                   color: '#1A1A1A',
                   marginBottom: '1.5rem',
                   textAlign: 'center',
-                  letterSpacing: '-0.01em',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  gap: '0.5rem'
+                  letterSpacing: '-0.01em'
                 }}
               >
-                <FaShieldAlt style={{ fontSize: '1.5rem', color: '#1A1A1A' }} /> Enterprise Security
+                {t('features.security.title')}
               </h3>
               <p
                 style={{
@@ -525,7 +495,7 @@ const HomePage: React.FC = () => {
                   fontWeight: '400'
                 }}
               >
-                Compliance-first architecture with built-in data protection and industry-leading security standards.
+                {t('features.security.description')}
               </p>
             </div>
 
@@ -606,14 +576,10 @@ const HomePage: React.FC = () => {
                   color: '#1A1A1A',
                   marginBottom: '1.5rem',
                   textAlign: 'center',
-                  letterSpacing: '-0.01em',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  gap: '0.5rem'
+                  letterSpacing: '-0.01em'
                 }}
               >
-                <FaCogs style={{ fontSize: '1.5rem', color: '#1A1A1A' }} /> Intelligent Automation
+                {t('features.automation.title')}
               </h3>
               <p
                 style={{
@@ -624,7 +590,7 @@ const HomePage: React.FC = () => {
                   fontWeight: '400'
                 }}
               >
-                Reduce manual errors and streamline workflows with AI-powered automation and smart orchestration.
+                {t('features.automation.description')}
               </p>
             </div>
           </div>
@@ -633,8 +599,6 @@ const HomePage: React.FC = () => {
 
       {/* Digital Capabilities Section - Using Reusable Component */}
       <CapabilityGrid 
-        title="Digital Capabilities"
-        subtitle="Explore our core technology strengths and platform features."
         columns={4}
       />
 
@@ -664,7 +628,7 @@ const HomePage: React.FC = () => {
               marginBottom: '1rem'
             }}
           >
-            Ready to Scale Your Business?
+            {t('home.ctaReady.title')}
           </h2>
           <p 
             style={{
@@ -676,10 +640,10 @@ const HomePage: React.FC = () => {
               opacity: '0.8'
             }}
           >
-            Join leading companies using Unknown for secure, scalable infrastructure solutions.
+            {t('home.ctaReady.subtitle')}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            {authenticated ? (
+                {authenticated ? (
               <Link to="/my-items">
                 <button 
                   className="text-lg font-semibold rounded-lg shadow-lg transition-all duration-300 hover:scale-105 px-8 py-4"
@@ -695,7 +659,7 @@ const HomePage: React.FC = () => {
                     e.currentTarget.style.background = 'linear-gradient(135deg, #1A1A1A, #4A4A4A)'
                   }}
                 >
-                  Go to My Items
+                  {t('home.ctaReady.authCta')}
                 </button>
               </Link>
             ) : (
@@ -716,7 +680,7 @@ const HomePage: React.FC = () => {
                     e.currentTarget.style.color = '#1A1A1A'
                   }}
                 >
-                  Contact Sales
+                  {t('home.ctaReady.anonCta')}
                 </button>
               </Link>
             )}
