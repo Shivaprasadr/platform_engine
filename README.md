@@ -206,16 +206,16 @@ flowchart LR
   %% Actors and services
   UserGuest["User (Guest)"]
   UserAuth["User (Authenticated)"]
-  WEB["React Web App\nhttp://localhost:3000"]
-  KC["Keycloak\nhttp://localhost:8080"]
+  WEB["React Web App<br/>http://localhost:3000"]
+  KC["Keycloak<br/>http://localhost:8080"]
   IDP_GOOG["Google OAuth"]
   IDP_FB["Facebook OAuth"]
-  API["Platform API\nhttp://localhost:4000"]
-  PG_AUTH[("Postgres - Keycloak DB\n:5432")]
-  PG_API[("Postgres - App DB\n:5433")]
+  API["Platform API<br/>http://localhost:4000"]
+  PG_AUTH["Postgres - Keycloak DB<br/>:5432"]
+  PG_API["Postgres - App DB<br/>:5433"]
   STRIPE["Stripe (Billing)"]
-  SYNC["Subscription Sync Service\n(webhook -> DB -> Keycloak sync)"]
-  ADMIN["Keycloak Setup/Automation\n(keycloak-auth/scripts)"]
+  SYNC["Subscription Sync Service<br/>(webhook → DB → Keycloak sync)"]
+  ADMIN["Keycloak Setup/Automation<br/>(keycloak-auth/scripts)"]
 
   %% Public and gated access
   UserGuest -->|visit public pages| WEB
