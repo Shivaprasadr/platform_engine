@@ -1,48 +1,112 @@
 # Platform Engine - Complete Authentication & Development Stack
 
-A comprehensive full-stack platform featuring automated Keycloak authentication, React frontend, Flask API, and PostgreSQL databases with intelligent service orchestration and optimized development workflow.
+A full-stack development setup with Keycloak authentication, React frontend, Flask API, and PostgreSQL databases.
 
 ## 🏗️ Architecture
 
 ```mermaid
 flowchart TB
-    subgraph "🔐 Authentication Services"
-        KC[Keycloak Server<br/>:8080]:::auth
-        PG_AUTH[(PostgreSQL Auth<br/>:5432)]:::db
-        SETUP[Keycloak Setup<br/>Service]:::setup
-        KC --> PG_AUTH
-        SETUP --> KC
-    end
+  subgraph Auth
+    KC[Keycloak Server\n:8080]
+    PG_AUTH[(Postgres - Keycloak DB\n:5432)]
+    KC --> PG_AUTH
+  end
 
-    subgraph "🚀 Application Services"
-        WEB[React Web App<br/>:3000]:::web
-        API[Flask API<br/>:4000]:::api
-        PG_API[(PostgreSQL API<br/>:5433)]:::db
-        API --> PG_API
-    end
+  subgraph App
+    WEB[React Web App\n:3000]
+    API[Flask API\n:4000]
+    PG_API[(Postgres - App DB\n:5433)]
+    WEB --> API
+    API --> PG_API
+  end
 
-    subgraph "🔄 Service Dependencies"
-        PG_AUTH -.->|health check| KC
-        KC -.->|health check| SETUP
-        SETUP -.->|configured| API
-        SETUP -.->|configured| WEB
-    end
-
-    WEB -->|authenticate| KC
-    WEB -->|API requests| API
-    API -->|validate tokens| KC
-
-    classDef auth fill:#e1f5fe,stroke:#01579b,stroke-width:2px,color:#01579b
-    classDef web fill:#f3e5f5,stroke:#4a148c,stroke-width:2px,color:#4a148c
-    classDef api fill:#e8f5e8,stroke:#1b5e20,stroke-width:2px,color:#1b5e20
-    classDef db fill:#fff3e0,stroke:#e65100,stroke-width:2px,color:#e65100
-    classDef setup fill:#fce4ec,stroke:#880e4f,stroke-width:2px,color:#880e4f
+  WEB -->|authenticate| KC
+  API -->|validate tokens| KC
 ```
+
+## 🔐 Keycloak architecture and user flow
+
+```mermaid
+flowchart LR
+  UG[User (Guest)] --> Web[React Web App]
+  UA[User (Authenticated)] --> Web
+  Web --> Keycloak[Keycloak Server]
+  Keycloak --> Google[Google OAuth]
+  Keycloak --> Facebook[Facebook OAuth]
+  Google --> Keycloak
+  Facebook --> Keycloak
+  Keycloak --> Web
+  Web --> API[Platform API]
+  API --> Keycloak
+  Keycloak --> DBAuth[(Postgres - Keycloak DB)]
+  API --> DBApp[(Postgres - App DB)]
+  Billing[Billing Provider] --> Sync[Subscription Sync]
+  Sync --> DBApp
+  Sync --> Keycloak
+```
+
+### Notes (how this maps to the repo)
+- Hosted login/registration: `keycloak.register()` / `keycloak.login()` are wired in `platform-engine-web/src/context/KeycloakContext.tsx`.
+- Identity brokering (Google/Facebook) is configured in Keycloak (IDPs). Use `idpHint` when calling login to pre-select provider.
+- For a custom signup UX, implement `POST /signup` in `platform-engine-api` and create users via Keycloak Admin API (see `keycloak-auth/scripts/keycloak_config.py`).
+- Environment variables used by the frontend:
+  - `VITE_KEYCLOAK_URL`, `VITE_KEYCLOAK_REALM`, `VITE_KEYCLOAK_CLIENT`.
+- Keep `PG_API` as the authoritative store for subscriptions; sync roles/attributes to Keycloak for token-level claims.
 
 ## 🚀 Quick Start
 
-### Prerequisites
-- Docker & Docker Compose
+Requirements: Docker, Docker Compose, Git
+
+```bash
+git clone <repository-url>
+cd platform_engine
+make quick-start
+```
+
+Check services:
+```bash
+make check-status
+make follow-all-logs
+```
+
+Web app: http://localhost:3000
+Keycloak admin: http://localhost:8080
+
+## 🛠️ Common Commands
+- `make quick-start` - Start full platform (background)
+- `make web-only` - Start frontend only
+- `make api-only` - Start API only
+- `make auth-only` - Start Keycloak only
+- `make stop-all` - Stop everything
+- `make fresh-start` - Clean and restart
+
+## 🔧 Development (web)
+From `platform-engine-web`:
+- `make dev-start` - Start dev server (Vite)
+- `make dev-foreground` - Start with logs
+- `make dev-rebuild` - Rebuild after package changes
+
+## 🔁 Subscription & Authorization Overview
+- Use Stripe (or similar) for billing; webhook handler updates `PG_API` subscription records.
+- A sync service updates Keycloak user roles/attributes on subscription state changes.
+- API enforces subscription checks against `PG_API` for critical operations; token claims are a cached convenience.
+
+## 🔒 Production notes
+- Set `sslRequired: "all"` in Keycloak.
+- Enable `verifyEmail` and configure SMTP.
+- Restrict redirect URIs to production domains.
+- Never call Keycloak Admin API from the browser.
+
+## 🔍 Troubleshooting
+- Keycloak logs: `make auth-logs`
+- Web logs: `make web-logs`
+- API logs: `make api-logs`
+
+---
+
+If you want, I can now:
+- Scaffold `POST /signup` in `platform-engine-api` that creates Keycloak users securely.
+- Add a frontend signup page wired to hosted Keycloak or the new API.
 - Git
 
 ### One-Command Setup
