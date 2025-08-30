@@ -198,6 +198,96 @@ make dev-stop
 
 ### 💾 DATABASE
 - `make db-logs` - Show database logs
+
+## 🔐 Keycloak architecture and user flow
+
+```mermaid
+flowchart LR
+  %% Actors and services
+  UserGuest["User (Guest)"]
+  UserAuth["User (Authenticated)"]
+  WEB["React Web App\nhttp://localhost:3000"]
+  KC["Keycloak\nhttp://localhost:8080"]
+  IDP_GOOG["Google OAuth"]
+  IDP_FB["Facebook OAuth"]
+  API["Platform API\nhttp://localhost:4000"]
+  PG_AUTH[("Postgres - Keycloak DB\n:5432")]
+  PG_API[("Postgres - App DB\n:5433")]
+  STRIPE["Stripe (Billing)"]
+  SYNC["Subscription Sync Service\n(webhook -> DB -> Keycloak sync)"]
+  ADMIN["Keycloak Setup/Automation\n(keycloak-auth/scripts)"]
+
+  %% Public and gated access
+  UserGuest -->|visit public pages| WEB
+  WEB -->|calls public API| API
+  API -->|reads public data| PG_API
+
+  %% Hosted login/register (Keycloak UI)
+  WEB -->|redirect to login/register| KC
+  KC -->|IDP redirect (OAuth)| IDP_GOOG
+  KC -->|IDP redirect (OAuth)| IDP_FB
+  IDP_GOOG -->|callback| KC
+  IDP_FB -->|callback| KC
+  KC -->|issue tokens (JWT)| WEB
+  WEB -->|use token| API
+  API -->|validate token (introspect or JWT verify)| KC
+
+  %% Optional: Custom signup via backend
+  WEB -->|POST /signup (email, pwd, attrs)| API
+  API -->|Keycloak Admin API: create user, set creds| KC
+  API -->|store subscription placeholder| PG_API
+
+  %% Subscription and role sync
+  STRIPE -->|webhook events| SYNC
+  SYNC -->|update subscription table| PG_API
+  SYNC -->|call Keycloak Admin API to set role/attr| KC
+  KC -->|include subscription claim via client-scope| WEB
+  WEB -->|token contains subscription claims| API
+
+  %% persistence
+  KC --> PG_AUTH
+  API --> PG_API
+  ADMIN --> KC
+
+  classDef svc fill:#f3f4f6,stroke:#111827
+  class WEB,KC,API,SYNC,ADMIN,STRIPE svc
+  class PG_AUTH,PG_API fill:#fff7ed,stroke:#c2410c
+```
+
+Notes — how this maps to the repo and implementation
+- Public pages: available to `User (Guest)`; backend (`API`) returns public content without auth.
+- Hosted login & registration: call `keycloak.login()` or `keycloak.register()` from the frontend (see `src/context/KeycloakContext.tsx`) to use Keycloak's UI and social brokering.
+- Social / OAuth: configure Google and Facebook as Identity Providers in Keycloak. Frontend can pass `idpHint` to prefer a provider.
+- Custom signup flow: if you need a custom UX, implement `POST /signup` in `platform-engine-api` which uses Keycloak Admin API (service account) to create users and set credentials — see `keycloak-auth/scripts/keycloak_config.py` for patterns.
+- Username/email: repo setup sets `registrationEmailAsUsername = true` in Keycloak automation; frontend/signup should treat email as username.
+- Token flow: Keycloak issues access tokens (JWT) for the web client (`platform-engine-web`). API validates tokens either by JWT signature (public key) or by introspection against Keycloak.
+- Subscription & access: use Stripe for billing; webhook handler updates `PG_API` subscription table and calls Keycloak Admin API to add/remove roles or attributes for user entitlements. Add a client-scope to include subscription/role claims in access tokens for faster gate checks.
+- Databases:
+  - `PG_AUTH` (Postgres) is used by Keycloak and populated by the auth service.
+  - `PG_API` (Postgres) is the platform DB for users' subscription records, application data and entitlements.
+- Sync authoritative state: keep `PG_API` as the source-of-truth for subscriptions; Keycloak roles/attributes act as a cached entitlement layer surfaced in tokens. Always validate critical operations against `PG_API`.
+- Environment variables used by the frontend (already in repo):
+  - `VITE_KEYCLOAK_URL` (e.g. `http://localhost:8080`)
+  - `VITE_KEYCLOAK_REALM` (e.g. `platform-engine-realm`)
+  - `VITE_KEYCLOAK_CLIENT` (e.g. `platform-engine-web`)
+
+Security & production notes
+- Use `sslRequired: "all"` in Keycloak for production and restrict redirect URIs to your domain(s).
+- Enable `verifyEmail = true` in production and configure SMTP so users confirm ownership before granting paid entitlements.
+- Never call Keycloak Admin API from the browser. Use `platform-engine-api` (or a dedicated sync service) for admin operations.
+- Protect webhook endpoints (verify Stripe signature) and use idempotency when processing events.
+
+Quick reference — where to edit in this repo
+- Keycloak automation & scripts: `keycloak-auth/scripts/*`
+- Frontend Keycloak wiring: `platform-engine-web/src/context/KeycloakContext.tsx` and `src/hooks/useKeycloak.ts`
+- Client registration config: `keycloak-auth/scripts/keycloak_clients_config.py`
+- Add custom signup endpoint in: `platform-engine-api/api/` (suggested path) and use `python-keycloak` or direct REST calls.
+
+If you want, I can now:
+- Add a minimal `POST /signup` handler scaffold in `platform-engine-api` that creates a user in Keycloak and returns friendly errors.
+- Add frontend signup page and wire it to the API or to `keycloak.register()` for hosted flow.
+
+---
 - `make backup-databases` - Backup all databases
 
 ## 🚀 Web Development with Live Reload
