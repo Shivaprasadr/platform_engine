@@ -203,55 +203,53 @@ make dev-stop
 
 ```mermaid
 flowchart LR
-  %% Actors and services
-  UserGuest["User (Guest)"]
-  UserAuth["User (Authenticated)"]
-  WEB["React Web App<br/>http://localhost:3000"]
-  KC["Keycloak<br/>http://localhost:8080"]
-  IDP_GOOG["Google OAuth"]
-  IDP_FB["Facebook OAuth"]
-  API["Platform API<br/>http://localhost:4000"]
-  PG_AUTH["Postgres - Keycloak DB<br/>:5432"]
-  PG_API["Postgres - App DB<br/>:5433"]
-  STRIPE["Stripe (Billing)"]
-  SYNC["Subscription Sync Service<br/>(webhook → DB → Keycloak sync)"]
-  ADMIN["Keycloak Setup/Automation<br/>(keycloak-auth/scripts)"]
+  %% Simple, GitHub-safe diagram (no edge labels, minimal punctuation)
+  UG[User Guest]
+  UA[User Authenticated]
+  Web[React Web App]
+  Keycloak[Keycloak Server]
+  Google[Google Identity]
+  Facebook[Facebook Identity]
+  API[Platform API]
+  DBAuth[Postgres - Keycloak DB]
+  DBApp[Postgres - App DB]
+  Billing[Billing Provider]
+  Sync[Sync Service]
+  AdminSetup[Keycloak Setup Scripts]
 
-  %% Public and gated access
-  UserGuest -->|visit public pages| WEB
-  WEB -->|calls public API| API
-  API -->|reads public data| PG_API
+  %% basic flows
+  UG --> Web
+  Web --> API
+  API --> DBApp
 
-  %% Hosted login/register (Keycloak UI)
-  WEB -->|redirect to login/register| KC
-  KC -->|IDP redirect (OAuth)| IDP_GOOG
-  KC -->|IDP redirect (OAuth)| IDP_FB
-  IDP_GOOG -->|callback| KC
-  IDP_FB -->|callback| KC
-  KC -->|issue tokens (JWT)| WEB
-  WEB -->|use token| API
-  API -->|validate token (introspect or JWT verify)| KC
+  %% auth flows
+  Web --> Keycloak
+  Keycloak --> Google
+  Keycloak --> Facebook
+  Google --> Keycloak
+  Facebook --> Keycloak
+  Keycloak --> Web
+  Web --> API
+  API --> Keycloak
 
-  %% Optional: Custom signup via backend
-  WEB -->|POST /signup (email, pwd, attrs)| API
-  API -->|Keycloak Admin API: create user, set creds| KC
-  API -->|store subscription placeholder| PG_API
+  %% signup via backend (optional)
+  Web --> API
+  API --> Keycloak
+  API --> DBApp
 
-  %% Subscription and role sync
-  STRIPE -->|webhook events| SYNC
-  SYNC -->|update subscription table| PG_API
-  SYNC -->|call Keycloak Admin API to set role/attr| KC
-  KC -->|include subscription claim via client-scope| WEB
-  WEB -->|token contains subscription claims| API
+  %% billing & sync
+  Billing --> Sync
+  Sync --> DBApp
+  Sync --> Keycloak
 
   %% persistence
-  KC --> PG_AUTH
-  API --> PG_API
-  ADMIN --> KC
+  Keycloak --> DBAuth
+  API --> DBApp
+  AdminSetup --> Keycloak
 
   classDef svc fill:#f3f4f6,stroke:#111827
-  class WEB,KC,API,SYNC,ADMIN,STRIPE svc
-  class PG_AUTH,PG_API fill:#fff7ed,stroke:#c2410c
+  class Web,Keycloak,API,Sync,AdminSetup,Billing svc
+  class DBAuth,DBApp fill:#fff7ed,stroke:#c2410c
 ```
 
 Notes — how this maps to the repo and implementation
